@@ -77,7 +77,6 @@ The contribution is not breadth. It is a pinned-dependency, schema-enforced prot
 - [`docs/SSOT.md`](docs/SSOT.md) — single source of truth for the paper
 - [`docs/ODCV_INTEGRATION_PLAYBOOK.md`](docs/ODCV_INTEGRATION_PLAYBOOK.md) — integration at the model-backend boundary
 - [`docs/CSV_OUTPUT_CONTRACTS.md`](docs/CSV_OUTPUT_CONTRACTS.md) — exact column contracts for paper-facing CSVs
-- [`AUDIT_REPORT.md`](AUDIT_REPORT.md) — audit trail for threshold-critical held-out cases
 
 ## Pinned External Dependencies
 
