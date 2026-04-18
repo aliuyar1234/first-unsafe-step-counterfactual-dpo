@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LocalizationRecord",
+  "type": "object",
+  "required": [
+    "run_id",
+    "max_severity",
+    "first_unsafe_step_candidate",
+    "first_unsafe_step_final",
+    "previous_step_checked",
+    "ambiguity_flag",
+    "evidence_steps",
+    "auditor_version",
+    "notes"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "max_severity": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "first_unsafe_step_candidate": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "first_unsafe_step_final": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "previous_step_checked": {
+      "type": "boolean"
+    },
+    "ambiguity_flag": {
+      "type": "boolean"
+    },
+    "evidence_steps": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "auditor_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

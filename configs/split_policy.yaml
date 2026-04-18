@@ -1,0 +1,11 @@
+split:
+  strategy: stem_level_stratified
+  seed: 17
+  counts:
+    train: 24
+    val: 8
+    test: 8
+  keep_variants_together: true
+  domain_map_file: configs/domain_map.yaml
+  source_dir: external/ODCV-Bench/mandated_scenarios
+  output_file: data/processed/splits/split_v1.yaml

@@ -1,0 +1,7 @@
+eval:
+  methods:
+    - base
+    - contract_prompt
+  split: train_pilot
+  eval_seeds: [0]
+  pilot_num_stems: 4

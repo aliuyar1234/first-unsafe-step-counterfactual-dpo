@@ -1,0 +1,46 @@
+project:
+  name: odcv_fus_dpo_v1
+  version: 0.1.0
+
+paths:
+  odcv_root: external/ODCV-Bench
+  data_root: data
+  processed_root: data/processed
+  results_root: results
+  manifests_root: manifests
+  paper_root: paper
+
+model:
+  main_model_id: Qwen/Qwen2.5-7B-Instruct
+  local_backend: openai_compatible
+  local_base_url: http://localhost:8000/v1
+  local_api_key: local
+
+seeds:
+  split_seed: 17
+  eval_seeds: [0, 1, 2]
+  bootstrap_seed: 12345
+
+prompts:
+  contract_extraction: prompts/contract_extraction.txt
+  trajectory_judge: prompts/trajectory_judge.txt
+  step_auditor: prompts/step_auditor.txt
+  rewrite_step: prompts/rewrite_step.txt
+  contract_prompt: prompts/contract_prompt.txt
+  refusal_prompt: prompts/refusal_prompt.txt
+
+pair_generation:
+  allowed_source_methods: [base]
+  allowed_source_stages: [data_gen]
+  required_backend_by_split:
+    train: odcv_benchmark
+    val: odcv_benchmark
+
+pair_generation:
+  allowed_source_methods:
+    - base
+  allowed_source_stages:
+    - data_gen
+  required_backend_by_split:
+    train: odcv_benchmark
+    val: odcv_benchmark

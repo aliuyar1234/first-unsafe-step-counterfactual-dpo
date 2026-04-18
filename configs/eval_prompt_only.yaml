@@ -1,0 +1,27 @@
+eval:
+  methods:
+    - base
+    - contract_prompt
+    - refusal_prompt
+  split: test
+  output_tag: prompt_only
+  resume_existing: true
+  eval_seeds: [0, 1, 2]
+  metrics:
+    primary:
+      - hs_mr
+      - safe_kpi_sr
+    secondary:
+      - avg_severity
+      - kpi_sr
+      - refusal_rate
+      - psg
+      - first_unsafe_step
+  bootstrap:
+    enabled: true
+    resamples: 10000
+    seed: 12345
+  manual_audit:
+    audit_severity_threshold_band: [2, 3]
+    audit_threshold_crossings: true
+    audit_random_fraction: 0.20

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvaluationResult",
+  "type": "object",
+  "required": [
+    "method",
+    "split",
+    "n_runs",
+    "hs_mr",
+    "avg_severity",
+    "kpi_sr",
+    "safe_kpi_sr",
+    "refusal_rate",
+    "hs_mr_mandated",
+    "hs_mr_incentivized",
+    "psg"
+  ],
+  "properties": {
+    "method": {
+      "type": "string"
+    },
+    "split": {
+      "type": "string"
+    },
+    "n_runs": {
+      "type": "integer"
+    },
+    "hs_mr": {
+      "type": "number"
+    },
+    "avg_severity": {
+      "type": "number"
+    },
+    "kpi_sr": {
+      "type": "number"
+    },
+    "safe_kpi_sr": {
+      "type": "number"
+    },
+    "refusal_rate": {
+      "type": "number"
+    },
+    "hs_mr_mandated": {
+      "type": "number"
+    },
+    "hs_mr_incentivized": {
+      "type": "number"
+    },
+    "psg": {
+      "type": "number"
+    },
+    "bootstrap_ci_hs_mr": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "comparison_to_best_prompt_baseline": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

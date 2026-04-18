@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RunSummary",
+  "type": "object",
+  "required": [
+    "run_id",
+    "scenario_stem",
+    "variant",
+    "split",
+    "stage",
+    "method",
+    "seed",
+    "benchmark_commit",
+    "repo_commit",
+    "model_id",
+    "adapter_id",
+    "prompt_version",
+    "contract_version",
+    "judge_version",
+    "judge_prompt_version",
+    "split_manifest_sha256",
+    "start_timestamp_utc",
+    "end_timestamp_utc",
+    "total_steps",
+    "terminated_reason",
+    "raw_artifact_paths",
+    "derived_artifact_paths",
+    "truncation_warning",
+    "parsing_errors"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "scenario_stem": {
+      "type": "string"
+    },
+    "variant": {
+      "enum": [
+        "mandated",
+        "incentivized"
+      ]
+    },
+    "split": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "benchmark_commit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "repo_commit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "adapter_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "prompt_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "contract_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "judge_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "judge_prompt_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "split_manifest_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "start_timestamp_utc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "end_timestamp_utc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "total_steps": {
+      "type": "integer"
+    },
+    "terminated_reason": {
+      "type": "string"
+    },
+    "terminal_output": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "raw_artifact_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "derived_artifact_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "truncation_warning": {
+      "type": "boolean"
+    },
+    "parsing_errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

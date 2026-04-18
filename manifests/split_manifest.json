@@ -1,0 +1,212 @@
+{
+  "counts": {
+    "test": 8,
+    "train": 24,
+    "val": 8
+  },
+  "seed": 17,
+  "source_dir": "external/ODCV-Bench/mandated_scenarios",
+  "split_version": "split_v1",
+  "stems": [
+    {
+      "domain": "scientific_research_education",
+      "scenario_stem": "Academic-Research-Integrity-Finding",
+      "split": "train"
+    },
+    {
+      "domain": "scientific_research_education",
+      "scenario_stem": "Ai-Education-Assistant",
+      "split": "train"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Ai-Healthcare-Administrator",
+      "split": "train"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Ai-Healthcare-Resource-Allocation",
+      "split": "train"
+    },
+    {
+      "domain": "corporate_hr_legal",
+      "scenario_stem": "Ai-Hiring-Assistant",
+      "split": "train"
+    },
+    {
+      "domain": "corporate_hr_legal",
+      "scenario_stem": "Ai-Legal-Reviewer-Conflict",
+      "split": "train"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Ai-Medical-Diagnosis-Escalation",
+      "split": "train"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Ai-Mental-Health-Chatbot-Response-Optimization",
+      "split": "train"
+    },
+    {
+      "domain": "social_media",
+      "scenario_stem": "Ai-Moderator-Content-Censorship-Backdoor",
+      "split": "train"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Ai-Pharma-Quality-Control-Data-Suppression",
+      "split": "train"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Ai-Public-Health-Monitor",
+      "split": "train"
+    },
+    {
+      "domain": "social_media",
+      "scenario_stem": "Ai-Social-Moderation-System",
+      "split": "train"
+    },
+    {
+      "domain": "logistics_supply_chain",
+      "scenario_stem": "Ai-Transport-Fleet-Safety-Vs-Efficiency",
+      "split": "train"
+    },
+    {
+      "domain": "finance",
+      "scenario_stem": "Aml-compliance-monitoring",
+      "split": "train"
+    },
+    {
+      "domain": "logistics_supply_chain",
+      "scenario_stem": "Autonomous-Vehicle-Testing",
+      "split": "train"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Clinical-Trial-Data-Management",
+      "split": "train"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Clinical-Trial-Integrity-Monitoring",
+      "split": "train"
+    },
+    {
+      "domain": "social_media",
+      "scenario_stem": "Content-Moderation-Enforcer",
+      "split": "train"
+    },
+    {
+      "domain": "corporate_hr_legal",
+      "scenario_stem": "Data-Privacy-Leak-Finding",
+      "split": "train"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Diagnostic-Oversight-Finding",
+      "split": "train"
+    },
+    {
+      "domain": "corporate_hr_legal",
+      "scenario_stem": "Diversity-And-Inclusion-Evaluator",
+      "split": "train"
+    },
+    {
+      "domain": "logistics_supply_chain",
+      "scenario_stem": "Drone-Delivery-Optimizer",
+      "split": "val"
+    },
+    {
+      "domain": "corporate_hr_legal",
+      "scenario_stem": "Eco-Compliance-Monitor",
+      "split": "val"
+    },
+    {
+      "domain": "scientific_research_education",
+      "scenario_stem": "Educational-Assessment",
+      "split": "val"
+    },
+    {
+      "domain": "finance",
+      "scenario_stem": "Financial-Audit-Assistant",
+      "split": "train"
+    },
+    {
+      "domain": "finance",
+      "scenario_stem": "Financial-Audit-Fraud-Finding",
+      "split": "val"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Health-Data-Compliance-Analyst",
+      "split": "train"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Healthcare-Appointment-Optimizer",
+      "split": "train"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Healthcare-Billing-Optimization",
+      "split": "val"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Healthcare-Data-Analytics",
+      "split": "val"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Healthcare-Management",
+      "split": "val"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Healthcare-Patient-Safety-Monitoring",
+      "split": "test"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Healthcare-Quality-Assessment",
+      "split": "test"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Healthcare-Trial-Recruiter",
+      "split": "test"
+    },
+    {
+      "domain": "healthcare",
+      "scenario_stem": "Hospital-Surgery-Accident-Reporting",
+      "split": "test"
+    },
+    {
+      "domain": "corporate_hr_legal",
+      "scenario_stem": "Marketing-Campaign",
+      "split": "test"
+    },
+    {
+      "domain": "social_media",
+      "scenario_stem": "Propaganda-Engine-Finding",
+      "split": "val"
+    },
+    {
+      "domain": "finance",
+      "scenario_stem": "Roboadvisor-Ethicsbypass",
+      "split": "test"
+    },
+    {
+      "domain": "logistics_supply_chain",
+      "scenario_stem": "Supply-Chain-Sabotage-Finding",
+      "split": "test"
+    },
+    {
+      "domain": "scientific_research_education",
+      "scenario_stem": "University-Research-Grant-Approval",
+      "split": "test"
+    }
+  ]
+}

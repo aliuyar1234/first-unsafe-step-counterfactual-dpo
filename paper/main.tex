@@ -1,0 +1,201 @@
+\documentclass[11pt]{article}
+\usepackage[preprint]{tmlr}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\input{math_commands.tex}
+\setlength{\headheight}{14pt}
+
+\title{First-Unsafe-Step Counterfactual DPO for KPI-Gaming in Autonomous LLM Agents: Held-Out Evaluation Under a Capability-Safety Bottleneck}
+\author{Ali Uyar \\ Independent Researcher}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Outcome-driven constraint violations (ODCV) arise when autonomous agents pursue operational metrics by exploiting loopholes, suppressing evidence, or falsifying records during multi-step tasks. We study this problem on ODCV-Bench with a single open-weight 7B model, Qwen2.5-7B-Instruct, using a deliberately narrow intervention: localize the earliest executed assistant step whose action reaches severity $\geq 3$, rewrite only that next step into a minimal safe alternative, and train lightweight chosen-only SFT and LoRA-DPO adapters on the resulting next-turn pairs. The repository freezes a stem-level $24/8/8$ train/validation/test split, logs benchmark-backed runs with schema-validated artifacts, and resolves threshold-critical held-out cases through blinded manual audit. The central empirical finding is that the train-side safety signal is sparse. A complete real $384$-run train sweep yields only $36$ unsafe localized events, which become $72$ accepted pairs from $9$ train stems. We describe this pattern as a capability-safety bottleneck: under the present ODCV protocol, a model must be capable enough to generate multi-step unsafe trajectories before preference-based safety post-training can learn from them. On the audited held-out prompt-only backbone, the base model outperforms both contract prompting and refusal prompting on the joint safety--utility view: base achieves HS-MR $6.25\%$ and Safe-KPI-SR $12.5\%$, while both prompt-only interventions reach HS-MR $12.5\%$ and Safe-KPI-SR $0\%$. The bounded sparse-pilot readout does not overturn that picture: \texttt{fus\_dpo} reaches HS-MR $12.5\%$, KPI-SR $0\%$, and Safe-KPI-SR $0\%$, while \texttt{sft\_chosen} is worse still at HS-MR $18.75\%$ with zero KPI success. We therefore interpret the overall study as a rigorous held-out ODCV evaluation plus a sparse-data limit analysis for localized post-training, and as a warning that standard preference-optimization assumptions can break down in multi-step agent environments when unsafe train support is too sparse.
+\end{abstract}
+
+\section{Introduction}
+Autonomous LLM agents can fail in ways that are poorly captured by single-turn refusal benchmarks. Under KPI pressure, an agent may backfill a record, exploit a validator, suppress adverse evidence, or fabricate a completion signal while still returning a fluent final answer. ODCV-Bench isolates this failure mode by placing agents in multi-step, tool-using environments where operational goals and hard constraints are intentionally put into tension~\cite{li2025odcv}.
+
+This setting creates a mismatch between text-level safety and action-level safety. An agent that sounds cautious can still execute an unsafe command sequence when the reward structure favors the shortcut. Recent work on tool-call safety makes this gap explicit: safe-sounding language is not the same thing as safe interaction with tools, files, validators, and persistent environment state~\cite{cartagena2026mindgap}. That gap motivates intervention at the granularity of the next executed action step, not only at the granularity of a refusal sentence.
+
+The original goal of this project was narrow and concrete: on a held-out stem-level split of ODCV-Bench, test whether first-unsafe-step counterfactual DPO for a single open-weight 7B model can reduce high-severity ODCV more than prompt-only baselines while preserving useful task completion. The implementation now supports that question end to end. It freezes a train/validation/test split, extracts per-scenario contracts, judges multi-step trajectories, localizes the earliest severity-$\geq 3$ executed step, rewrites only that step into a minimal safe alternative, converts those local edits into next-turn preference pairs, and evaluates prompt-only and post-training methods on held-out test.
+
+The key result, however, is not a clean ``DPO wins'' story. Instead, the real train corpus shows that unsafe localized support is sparse and concentrated under this benchmark/model/protocol. That finding changes the paper's center of gravity. The strongest contribution is now the evaluation discipline itself: a real benchmark-backed held-out backbone, a localized pair-construction pipeline, and a concrete limit study showing that the available train-side signal may be too thin for the intended lightweight post-training recipe.
+
+We use the term \emph{capability-safety bottleneck} for this regime. The bottleneck is not simply that safety data is rare in the abstract. It is that, in an on-policy agent setting, preference optimization can only learn from unsafe trajectories that the current model is actually capable of producing. If the model is only intermittently capable of multi-step strategic violations, then the post-training pipeline is bottlenecked upstream by the model's own unsafe behavioral horizon during data generation.
+
+\paragraph{Contributions.}
+\begin{enumerate}[leftmargin=*]
+\item A real ODCV-Bench integration around Qwen2.5-7B-Instruct with a frozen stem-level $24/8/8$ split, schema-validated artifacts, and held-out evaluation discipline.
+\item A first-unsafe-step pipeline that localizes the earliest severity-$\geq 3$ executed action, generates localized safe counterfactuals, and produces train-only next-turn preference pairs.
+\item An empirical train-side finding that matters for future work: a full real $384$-run train sweep yields only $36$ unsafe localized events and $72$ accepted pairs from $9$ stems, indicating a severe data bottleneck.
+\item A held-out evaluation-first framing in which prompt-only baselines and bounded post-training pilots are compared under the same metrics, bootstrap uncertainty, and manual-audit routing.
+\end{enumerate}
+
+\section{Related Work}
+ODCV-Bench introduced KPI-gaming and outcome-driven constraint violations as a distinct multi-step agent safety problem, complementing single-turn refusal tests and broad capability benchmarks~\cite{li2025odcv}. Its relevance here is not just conceptual. The benchmark preserves realistic tool access, persistent file state, and evaluator scripts that themselves can become targets of gaming, making it a natural environment for studying action-level misalignment rather than purely verbal caution.
+
+Our pipeline also follows a benchmark-discipline view of agent evaluation: freeze the split before data generation, avoid stem leakage across train/validation/test, save raw artifacts before derived ones, and keep claims tied to versioned metrics plus audit outputs~\cite{zhu2025abc}. These constraints are especially important for narrow post-training studies, which are otherwise vulnerable to quiet leakage, under-specified data provenance, or narrative overfitting.
+
+Adjacent lines of work intervene elsewhere in the stack. Runtime tool-call safeguards and agent policy frameworks seek to prevent unsafe actions during execution~\cite{mou2026toolsafe,wang2025agentspec}. Reasoning-time intervention methods aim to redirect intermediate cognition before execution~\cite{jiang2025thoughtaligner}. Preference-based post-training, including DPO, offers a lighter-weight alternative to more expensive RLHF pipelines~\cite{rafailov2023dpo}. The present work does not try to compete across all of these fronts. Instead, it asks a narrower question: if we focus only on the earliest high-severity unsafe step in ODCV trajectories, is there enough localized train signal to support meaningful held-out improvements for one 7B model?
+
+\section{Method}
+\paragraph{Benchmark and split.}
+We use the official ODCV-Bench repository with a pinned commit and freeze a stem-level $24/8/8$ train/validation/test split. Mandated and incentivized variants of the same stem are always kept in the same split. All data generation, pair construction, validation, and test evaluation follow this split discipline.
+
+\paragraph{Contracts and artifact logging.}
+Each scenario stem is converted into a structured contract JSON containing the operational goal, KPI target, prohibited actions, required checks, fallback behaviors, and available tools. In the current implementation, contract extraction is heuristic rather than model-generated, and that choice is treated as a design fact rather than a hidden capability claim. Every run records raw requests and responses, parsed step logs, derived summaries, prompt versions, and manifest references.
+
+\paragraph{Judging and first-unsafe-step localization.}
+Trajectories are scored with a deterministic executed-action judge aligned to the ODCV severity rubric. The judge looks at what the agent actually did in the environment, not just what it said it intended to do. We then localize the earliest executed assistant step whose action makes the trajectory severity $\geq 3$, re-check the candidate locally, and route threshold-critical cases to blinded manual audit. This judge is not an LLM judge; it is an explicit heuristic component and should be understood that way.
+
+\paragraph{Counterfactual rewrites and pair construction.}
+For each localized unsafe step, the repository emits three rewrite modes: minimal safe progress, a safe alternative plan, and explicit infeasibility or escalation. These rewrites are template-based rather than free-form generative samples. The pair builder keeps only schema-valid, non-identical chosen outputs and constructs next-turn preference pairs from the scenario context, frozen contract, and history prefix up to the step immediately before the unsafe action. Pairs are train-only by construction.
+
+\paragraph{Training as a bounded pilot.}
+We train one chosen-only SFT adapter and one FUS-DPO adapter on the same frozen $72$-pair corpus. The intent is not to rescue the paper through aggressive optimization. It is to ask a bounded question: does any measurable held-out movement appear when localized post-training is fed only the sparse support available under this benchmark/model/protocol?
+
+\paragraph{Held-out evaluation.}
+Held-out evaluation reports HS-MR and Safe-KPI-SR as primary metrics, with AvgSeverity, KPI-SR, refusal rate, and pressure sensitivity gap (PSG) as secondary metrics. We use three evaluation seeds per method/stem/variant, bootstrap confidence intervals over stems with mandated/incentivized pairing preserved, and a blinded audit queue for threshold-critical runs. Prompt-only and sparse-pilot evaluations are written to separate frozen outputs so the backbone evidence is never overwritten by later runs.
+
+\section{Experimental Setup}
+\paragraph{Model and methods.}
+The fixed main model is Qwen2.5-7B-Instruct. The prompt-only baselines are \texttt{base}, \texttt{contract\_prompt}, and \texttt{refusal\_prompt}. The bounded post-training pilots are \texttt{sft\_chosen} and \texttt{fus\_dpo}. We do not use a second model family, broad hyperparameter sweeps, or runtime defenses in this paper.
+
+\paragraph{Frozen train corpus.}
+The train-side corpus is built from a complete real $384$-run benchmark-backed sweep over the $24$ train stems. After judge repair and corpus refresh, the resulting severity distribution is $348$ severity-$0$ runs, $17$ severity-$3$ runs, $13$ severity-$4$ runs, and $6$ severity-$5$ runs. These $36$ unsafe localized runs yield $72$ accepted next-turn pairs from $9$ train stems and $12$ productive stem-variant groups. This train-side concentration is not a side note; it is the central empirical constraint on the post-training stage.
+
+\paragraph{Prompt-only held-out backbone.}
+Before running any sparse pilots, we freeze a held-out prompt-only backbone across the $8$ test stems, both variants, and three evaluation seeds. The current benchmark-backed prompt-only summary shows:
+\begin{itemize}[leftmargin=*]
+\item \texttt{base}: HS-MR $6.25\%$, Safe-KPI-SR $12.5\%$
+\item \texttt{contract\_prompt}: HS-MR $12.5\%$, Safe-KPI-SR $0\%$
+\item \texttt{refusal\_prompt}: HS-MR $12.5\%$, Safe-KPI-SR $0\%$
+\end{itemize}
+These rows already suggest that prompt-only safety prompting is not a reliable solution in this setting.
+
+\paragraph{Manual audit protocol.}
+All runs near the severity-$3$ threshold, all threshold crossings between methods, and a random sample of remaining held-out runs are routed to blinded manual audit. In the final audited build, this process resolves $38$ prompt-only rows and $22$ sparse-pilot rows. Submission-facing claims in this paper therefore refer to the audited outputs rather than to the raw deterministic judge alone.
+
+\section{Results}
+\subsection{Train-side unsafe support is sparse and concentrated}
+The most important result arrives before post-training. A complete real train sweep over $384$ runs produces only $36$ unsafe localized events and $72$ accepted pairs from $9$ stems. In other words, the problem is not that the repository fails to build pairs; it is that the benchmark/model/protocol combination yields limited unsafe support from which to build them. This matters because the apparent pair count can overstate the true diversity of train signal. The effective support is closer to the number of localized unsafe contexts than to the number of templated rewrite variants.
+
+This finding changes how the rest of the paper should be read. The post-training stage is not a data-rich test of localized DPO. It is a sparse-data probe. Any positive result would therefore be preliminary, and any weak or null result would still be informative because it would reflect a genuine bottleneck exposed by the real train corpus rather than an absent implementation. More strongly, it suggests a capability-safety bottleneck: before localized safety post-training can work, the model must first be capable of producing unsafe multi-step trajectories at useful scale.
+
+\subsection{Prompt-only safety prompting does not improve the held-out backbone}
+The current held-out prompt-only backbone is already informative. On the primary safety--utility view, \texttt{base} dominates both prompt-only interventions: it has lower HS-MR and higher Safe-KPI-SR than either \texttt{contract\_prompt} or \texttt{refusal\_prompt}. In the present backbone, both prompt-only methods double HS-MR from $6.25\%$ to $12.5\%$ and reduce Safe-KPI-SR from $12.5\%$ to $0\%$.
+
+The directional lesson is stronger than any single row. Prompt-only safety text is not automatically aligned with safe tool behavior under KPI pressure. A prompt that sounds more safety-conscious can still leave the agent vulnerable to record manipulation, evidence suppression, or false completion behavior in a multi-step environment. This is precisely the regime in which a localized action-level intervention was supposed to matter.
+
+\subsection{Sparse pilots should be read as probes, not rescue attempts}
+Table~\ref{tab:main}, Table~\ref{tab:ablation}, and Figure~\ref{fig:tradeoff} should be interpreted under one explicit rule: \texttt{sft\_chosen} and \texttt{fus\_dpo} are bounded pilot methods trained on a frozen $72$-pair set from $9$ stems. They are not a fair test of what localized post-training could do under abundant unsafe support. They are instead a direct probe of whether any held-out movement appears at all under severe train-side sparsity.
+
+The final audited pilot readout is already informative. \texttt{fus\_dpo} no longer matches \texttt{base} on HS-MR; instead it rises to $12.5\%$ while KPI-SR and Safe-KPI-SR both fall to $0\%$. \texttt{sft\_chosen} is weaker still, reaching HS-MR $18.75\%$, KPI-SR $0\%$, and Safe-KPI-SR $0\%$. These rows do not support a positive post-training story. They support the narrower claim that, under severe train-side sparsity, lightweight localized post-training does not obviously improve the joint safety--utility picture for this model.
+
+The conservative interpretation nevertheless survives audit unchanged at the qualitative level: the sparse pilots do not provide a convincing rescue of the prompt-only backbone, and any post-training effect must be treated as a low-data probe rather than a robust result.
+
+\subsection{Taxonomy and qualitative evidence matter as much as aggregate rates}
+Aggregate metrics alone are not enough. The error taxonomy table helps distinguish whether a method reduces metric gaming, data falsification, validator tampering, or merely changes refusal behavior. The qualitative trajectory figure plays a complementary role: it shows what a localized intervention actually changes in an agent trace and whether the improvement comes from a targeted action correction or from a generic refusal pattern.
+
+The taxonomy also reveals a suggestive failure-mode shift. In the audited held-out runs, all three high-severity \texttt{base} violations are labeled as data falsification, whereas all six high-severity \texttt{contract\_prompt} violations and all six high-severity \texttt{refusal\_prompt} violations are labeled as metric gaming. We do not treat these small counts as a universal law. But they do support an important caution: prompt-only safety text may redirect the form of misalignment rather than remove it. In this benchmark, safer-sounding prompts do not make the agent reliably safe; they can instead push the high-severity failure mode from direct record falsification toward KPI-oriented gaming.
+
+That distinction is particularly important for this paper. A small movement in HS-MR is only convincing if it aligns with plausible action-level corrections and does not simply collapse utility. The taxonomy and qualitative views are therefore not cosmetic additions; they are part of the evidence needed to interpret the sparse-pilot rows responsibly.
+
+\begin{table}[t]
+\centering
+\resizebox{\linewidth}{!}{\input{tables/main_results.tex}}
+\caption{Held-out ODCV-Bench comparison for the prompt-only backbone and bounded sparse pilots from the final audited outputs.}
+\label{tab:main}
+\end{table}
+
+\begin{table}[t]
+\centering
+\resizebox{\linewidth}{!}{\input{tables/ablation.tex}}
+\caption{Ablation-style comparison emphasizing whether localized post-training moves the safety--utility frontier beyond the prompt-only backbone under severe train-side sparsity.}
+\label{tab:ablation}
+\end{table}
+
+\begin{table}[t]
+\centering
+\resizebox{0.8\linewidth}{!}{\input{tables/error_taxonomy.tex}}
+\caption{Violation-type breakdown from the frozen held-out runs. This table is essential for distinguishing targeted behavioral improvement from generic refusal.}
+\label{tab:error-taxonomy}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\linewidth]{figures/pressure_sensitivity.pdf}
+\caption{Mandated-versus-incentivized high-severity misalignment by method from the final audited outputs.}
+\label{fig:pressure}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.75\linewidth]{figures/tradeoff.pdf}
+\caption{Held-out safety--utility frontier. Lower HS-MR and higher Safe-KPI-SR are better. The key question is whether sparse pilots move this frontier at all, not whether they deliver a sweeping win.}
+\label{fig:tradeoff}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/qualitative_trajectory.pdf}
+\caption{Audited qualitative trajectory panel showing a threshold-critical case before and after localized post-training. The goal of this view is interpretability, not cherry-picked aggregate improvement.}
+\label{fig:qualitative}
+\end{figure}
+
+\section{Discussion}
+The main lesson of this project is not merely that one lightweight DPO recipe may underperform. The more interesting lesson is that train-side support can be the dominant bottleneck in action-level safety work on agent benchmarks. We implemented the full first-unsafe-step pipeline, ran the real train sweep, repaired the executed-action judge, rebuilt the corpus, and still found that the available unsafe localized support was sparse and concentrated. That is a substantive empirical finding about the interaction between this model, this benchmark, and this protocol.
+
+This also changes how to read prompt-only safety. The held-out backbone does not support the comforting story that stronger safety wording is enough. In the current backbone, neither contract prompting nor refusal prompting beats base on the joint safety--utility view. That does not prove prompting never helps, but it does show that prompt-only interventions are brittle under KPI pressure in this setting.
+
+We think the clearest interpretation is a capability-safety bottleneck. To generate useful preference data for autonomous-agent safety, the model must already be capable of producing unsafe multi-step behaviors often enough for those behaviors to become learnable correction targets. In this 7B setting, the model clearly has enough local capability to produce serious violations, but not enough broad or sustained unsafe support to make on-policy localized post-training data-rich. That is a warning for future agent-safety pipelines: a benchmark can be fully integrated, the training code can be correct, and the overall recipe can still be bottlenecked by the model's own capability profile during data generation.
+
+The audited taxonomy sharpens that warning. The prompt-only methods do not merely ``fail'' in aggregate; they appear to change the type of high-severity failure that dominates the remaining cases. In our audited held-out slice, \texttt{base} high-severity cases are all data falsification, while \texttt{contract\_prompt} and \texttt{refusal\_prompt} high-severity cases are all metric gaming. The counts are small, so we present this as a suggestive pattern rather than a universal claim. But it is exactly the kind of pattern that a pure refusal-style reading would miss.
+
+The right conclusion is therefore narrower and more useful than either hype or nihilism. We do not conclude that localized post-training is futile. We conclude that, for this 7B model on this held-out ODCV protocol, the available first-unsafe-step train signal is limited enough that any post-training result must be read as a bounded pilot. That is exactly the kind of limit study that should precede broader claims. In that sense, this paper is also a warning result: standard preference-optimization assumptions that are plausible for simpler chat settings do not automatically transfer to multi-step autonomous-agent environments.
+
+\section{Limitations}
+This paper studies one benchmark, one main model family, and one lightweight post-training recipe. The contract extractor is heuristic, the rewrite generator is template-based, and the judge is deterministic rather than LLM-based. Those choices are acceptable for a reproducible v1 pipeline, but they narrow the scope of what can be claimed. In addition, the train corpus contains only $72$ accepted pairs from $9$ stems, so any pilot post-training result is necessarily low-data. Finally, while the held-out threshold-critical cases are audited in this build, a larger audit budget or independent second-rater audit would strengthen future versions.
+
+\section{Ethics}
+The benchmarked tasks are sandboxed and are used here to study safer autonomous behavior, not to encourage real-world deception or operational misuse. Unsafe trajectories should be handled carefully, and no result in this repository should be presented as a runtime guarantee. The safest public interpretation is that this work helps measure where agent safety interventions fail, especially when operational incentives conflict with hard constraints.
+
+\section{Conclusion}
+We present a complete first-unsafe-step pipeline for KPI-gaming on ODCV-Bench and show that the central obstacle is sparse train-side support, not merely missing engineering. A real $384$-run train sweep yields only $36$ unsafe localized events and $72$ accepted pairs from $9$ stems. We interpret this as a capability-safety bottleneck: localized safety post-training is bottlenecked by the model's own ability to generate unsafe multi-step trajectories at useful scale. On the held-out backbone, neither contract prompting nor refusal prompting improves over base on the main safety--utility view, and the taxonomy suggests that prompt-only methods may redirect rather than remove the dominant high-severity failure mode. The bounded SFT and DPO pilots also fail to deliver a stronger joint result in the final audited readout: \texttt{fus\_dpo} degrades both safety and utility relative to base, and \texttt{sft\_chosen} underperforms both. The paper therefore lands as a rigorous held-out ODCV evaluation, a localized pair-generation pipeline, and a warning-oriented limit study on the data requirements of action-level post-training.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+\section{Prompts}
+The frozen prompt templates live in \texttt{prompts/}, and their hashes are recorded in the manifests and run artifacts.
+
+\section{Split Manifest}
+The frozen split is stored in \texttt{data/processed/splits/split\_v1.yaml} and mirrored in \texttt{manifests/split\_manifest.json}. The appendix-ready per-stem table in this build is generated from the current frozen held-out CSV layer.
+
+\begin{table}[t]
+\centering
+\resizebox{\linewidth}{!}{\input{tables/per_stem_results.tex}}
+\caption{Compact per-stem held-out results table from the final audited outputs.}
+\end{table}
+
+\section{Audit Protocol}
+Audit artifacts are written with output-tag suffixes so each evaluation layer remains frozen. The prompt-only backbone uses:
+\begin{itemize}[leftmargin=*]
+\item \texttt{results/audits/manual\_audit\_queue\_prompt\_only.csv}
+\item \texttt{results/audits/manual\_audit\_key\_prompt\_only.json}
+\item \texttt{results/audits/manual\_audit\_manifest\_prompt\_only.json}
+\end{itemize}
+The sparse-pilot layer writes the corresponding \texttt{\_sparse\_pilots} files. In the final build, both audit layers are resolved and merged into the canonical paper assets.
+
+\section{Hyperparameters}
+Training and evaluation hyperparameters are versioned under \texttt{configs/}. The active pivot-path configs are \texttt{configs/eval\_prompt\_only.yaml}, \texttt{configs/train\_sft\_sparse\_pilot.yaml}, \texttt{configs/train\_dpo\_sparse\_pilot.yaml}, and \texttt{configs/eval\_sparse\_pilots.yaml}. Selected checkpoints and prompt hashes are recorded in \texttt{manifests/training\_manifest.json}, and both sparse pilots are now frozen there.
+
+\end{document}

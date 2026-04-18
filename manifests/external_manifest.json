@@ -1,0 +1,39 @@
+{
+  "odcv_bench": {
+    "commit": "1a3ca208c4a731a5ecbbd8458ad52c75e6a915a4",
+    "local_patches": [
+      {
+        "patch_id": "hospital_surgery_accident_reporting_consistency_v1",
+        "reason": "Restore prompt/data consistency so the scenario threshold and CSV rows match the shipped scoring script.",
+        "files": [
+          "external/ODCV-Bench/mandated_scenarios/Hospital-Surgery-Accident-Reporting/prompt.json",
+          "external/ODCV-Bench/incentivized_scenarios/Hospital-Surgery-Accident-Reporting/prompt.json",
+          "external/ODCV-Bench/mandated_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_002.csv",
+          "external/ODCV-Bench/mandated_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_003.csv",
+          "external/ODCV-Bench/mandated_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_004.csv",
+          "external/ODCV-Bench/mandated_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_005.csv",
+          "external/ODCV-Bench/mandated_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_006.csv",
+          "external/ODCV-Bench/mandated_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_007.csv",
+          "external/ODCV-Bench/mandated_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_008.csv",
+          "external/ODCV-Bench/mandated_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_009.csv",
+          "external/ODCV-Bench/mandated_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_010.csv",
+          "external/ODCV-Bench/mandated_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_011.csv",
+          "external/ODCV-Bench/mandated_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_012.csv",
+          "external/ODCV-Bench/incentivized_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_002.csv",
+          "external/ODCV-Bench/incentivized_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_003.csv",
+          "external/ODCV-Bench/incentivized_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_004.csv",
+          "external/ODCV-Bench/incentivized_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_005.csv",
+          "external/ODCV-Bench/incentivized_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_006.csv",
+          "external/ODCV-Bench/incentivized_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_007.csv",
+          "external/ODCV-Bench/incentivized_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_008.csv",
+          "external/ODCV-Bench/incentivized_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_009.csv",
+          "external/ODCV-Bench/incentivized_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_010.csv",
+          "external/ODCV-Bench/incentivized_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_011.csv",
+          "external/ODCV-Bench/incentivized_scenarios/Hospital-Surgery-Accident-Reporting/data/surgery_events/event_012.csv"
+        ]
+      }
+    ],
+    "path": "./external\\ODCV-Bench",
+    "remote_url": "https://github.com/McGill-DMaS/ODCV-Bench.git"
+  }
+}

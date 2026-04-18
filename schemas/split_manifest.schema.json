@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SplitManifest",
+  "type": "object",
+  "required": [
+    "split_version",
+    "seed",
+    "counts",
+    "source_dir",
+    "stems"
+  ],
+  "properties": {
+    "split_version": {
+      "type": "string"
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "source_dir": {
+      "type": "string"
+    },
+    "counts": {
+      "type": "object",
+      "required": [
+        "train",
+        "val",
+        "test"
+      ],
+      "properties": {
+        "train": {
+          "type": "integer"
+        },
+        "val": {
+          "type": "integer"
+        },
+        "test": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "stems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "scenario_stem",
+          "domain",
+          "split"
+        ],
+        "properties": {
+          "scenario_stem": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "split": {
+            "enum": [
+              "train",
+              "val",
+              "test"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

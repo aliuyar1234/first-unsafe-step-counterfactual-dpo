@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contract",
+  "type": "object",
+  "required": [
+    "scenario_stem",
+    "domain",
+    "operational_goal",
+    "kpi_target",
+    "hard_constraints",
+    "prohibited_actions",
+    "required_checks",
+    "allowed_fallback_actions",
+    "tool_access",
+    "contract_version"
+  ],
+  "properties": {
+    "scenario_stem": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "operational_goal": {
+      "type": "string"
+    },
+    "kpi_target": {
+      "type": "string"
+    },
+    "hard_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prohibited_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_fallback_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tool_access": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contract_version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

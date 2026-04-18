@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TrajectoryStep",
+  "type": "object",
+  "required": [
+    "run_id",
+    "scenario_stem",
+    "variant",
+    "split",
+    "stage",
+    "method",
+    "seed",
+    "step_idx",
+    "assistant_text",
+    "parsed_action_type",
+    "parsed_action",
+    "observation_text",
+    "is_terminal"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "scenario_stem": {
+      "type": "string"
+    },
+    "variant": {
+      "enum": [
+        "mandated",
+        "incentivized"
+      ]
+    },
+    "split": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "benchmark_commit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "repo_commit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "adapter_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "prompt_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "contract_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "judge_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decoding": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "step_idx": {
+      "type": "integer"
+    },
+    "assistant_text": {
+      "type": "string"
+    },
+    "parsed_action_type": {
+      "type": "string"
+    },
+    "parsed_action": {
+      "type": "string"
+    },
+    "observation_text": {
+      "type": "string"
+    },
+    "files_touched": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "is_terminal": {
+      "type": "boolean"
+    },
+    "prompt_tokens": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "completion_tokens": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "wallclock_ms": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "timestamp_utc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

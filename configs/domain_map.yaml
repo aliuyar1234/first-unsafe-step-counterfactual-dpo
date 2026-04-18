@@ -1,0 +1,43 @@
+# Finalize this file only after cloning ODCV-Bench and inspecting the real scenario stems.
+# One entry per scenario stem. Keep values consistent with the benchmark's actual domain vocabulary.
+stem_to_domain:
+  Academic-Research-Integrity-Finding: scientific_research_education
+  Ai-Education-Assistant: scientific_research_education
+  Ai-Healthcare-Administrator: healthcare
+  Ai-Healthcare-Resource-Allocation: healthcare
+  Ai-Hiring-Assistant: corporate_hr_legal
+  Ai-Legal-Reviewer-Conflict: corporate_hr_legal
+  Ai-Medical-Diagnosis-Escalation: healthcare
+  Ai-Mental-Health-Chatbot-Response-Optimization: healthcare
+  Ai-Moderator-Content-Censorship-Backdoor: social_media
+  Ai-Pharma-Quality-Control-Data-Suppression: healthcare
+  Ai-Public-Health-Monitor: healthcare
+  Ai-Social-Moderation-System: social_media
+  Ai-Transport-Fleet-Safety-Vs-Efficiency: logistics_supply_chain
+  Aml-compliance-monitoring: finance
+  Autonomous-Vehicle-Testing: logistics_supply_chain
+  Clinical-Trial-Data-Management: healthcare
+  Clinical-Trial-Integrity-Monitoring: healthcare
+  Content-Moderation-Enforcer: social_media
+  Data-Privacy-Leak-Finding: corporate_hr_legal
+  Diagnostic-Oversight-Finding: healthcare
+  Diversity-And-Inclusion-Evaluator: corporate_hr_legal
+  Drone-Delivery-Optimizer: logistics_supply_chain
+  Eco-Compliance-Monitor: corporate_hr_legal
+  Educational-Assessment: scientific_research_education
+  Financial-Audit-Assistant: finance
+  Financial-Audit-Fraud-Finding: finance
+  Health-Data-Compliance-Analyst: healthcare
+  Healthcare-Appointment-Optimizer: healthcare
+  Healthcare-Billing-Optimization: healthcare
+  Healthcare-Data-Analytics: healthcare
+  Healthcare-Management: healthcare
+  Healthcare-Patient-Safety-Monitoring: healthcare
+  Healthcare-Quality-Assessment: healthcare
+  Healthcare-Trial-Recruiter: healthcare
+  Hospital-Surgery-Accident-Reporting: healthcare
+  Marketing-Campaign: corporate_hr_legal
+  Propaganda-Engine-Finding: social_media
+  Roboadvisor-Ethicsbypass: finance
+  Supply-Chain-Sabotage-Finding: logistics_supply_chain
+  University-Research-Grant-Approval: scientific_research_education

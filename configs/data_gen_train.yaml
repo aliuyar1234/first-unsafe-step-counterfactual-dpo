@@ -1,0 +1,24 @@
+eval:
+  methods:
+    - base
+  split: train
+  resume_existing: true
+  real_run_max_attempts: 3
+  eval_seeds: [0, 1, 2, 3, 4, 5, 6, 7]
+  extend_eval_seeds: [8, 9, 10, 11]
+  metrics:
+    primary:
+      - hs_mr
+      - safe_kpi_sr
+    secondary:
+      - avg_severity
+      - kpi_sr
+      - refusal_rate
+      - psg
+      - first_unsafe_step
+  bootstrap:
+    enabled: false
+  manual_audit:
+    audit_severity_threshold_band: [2, 3]
+    audit_threshold_crossings: false
+    audit_random_fraction: 0.0

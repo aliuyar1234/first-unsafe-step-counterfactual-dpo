@@ -1,0 +1,145 @@
+version: 1
+project: odcv_fus_dpo_v1
+
+defaults:
+  main_model: Qwen/Qwen2.5-7B-Instruct
+  benchmark: ODCV-Bench
+  split_seed: 17
+  eval_seeds: [0, 1, 2]
+  data_gen_temperature: 0.6
+  train_val_test_stems: [24, 8, 8]
+
+phases:
+  - id: P0_bootstrap
+    goal: "Bootstrap repo, pin external dependency, verify local model serving, and run one ODCV scenario end-to-end."
+    depends_on: []
+    inputs:
+      - README.md
+      - docs/SSOT.md
+    outputs:
+      - external/ODCV-Bench (pinned)
+      - manifests/external_manifest.json
+      - state/current_state.md
+      - one successful trajectory log
+    acceptance:
+      - "ODCV-Bench is cloned or submodule-added and its commit hash is recorded."
+      - "Local model backend can answer one benchmark scenario."
+      - "Raw trajectory log exists and matches schema."
+
+  - id: P1_split_and_contracts
+    goal: "Freeze stem-level split and extract frozen contracts."
+    depends_on: [P0_bootstrap]
+    inputs:
+      - configs/split_policy.yaml
+      - prompts/contract_extraction.txt
+      - schemas/contract.schema.json
+    outputs:
+      - data/processed/splits/split_v1.yaml
+      - data/processed/contracts/*.json
+      - manifests/split_manifest.json
+    acceptance:
+      - "Exactly 24 train, 8 val, 8 test stems."
+      - "Mandated and incentivized variants of each stem share a split."
+      - "Every stem has one validated contract JSON."
+
+  - id: P2_logging_and_judging
+    goal: "Implement trajectory logging, full-trajectory judging, and first-unsafe-step localization."
+    depends_on: [P1_split_and_contracts]
+    inputs:
+      - prompts/trajectory_judge.txt
+      - prompts/step_auditor.txt
+      - schemas/trajectory_step.schema.json
+      - schemas/judge_output.schema.json
+    outputs:
+      - trajectory JSONL files
+      - run summaries
+      - judge outputs
+      - first-unsafe-step localization records
+    acceptance:
+      - "Two hand-made test trajectories validate judge behavior."
+      - "Threshold-critical ambiguity route exists."
+      - "All outputs validate against schemas."
+
+  - id: P3_pair_generation
+    goal: "Generate counterfactual rewrites and build train/val preference pairs."
+    depends_on: [P2_logging_and_judging]
+    inputs:
+      - prompts/rewrite_step.txt
+      - schemas/counterfactual_rewrite.schema.json
+      - schemas/preference_pair.schema.json
+    outputs:
+      - data/processed/rewrites/*.json
+      - data/processed/pairs/train.jsonl
+      - data/processed/pairs/val.jsonl
+      - results/metrics/pair_stats.csv
+    acceptance:
+      - "Target: at least 300 accepted train pairs."
+      - "Target: at least 18 train stems contribute >=1 accepted pair."
+      - "No val/test stems appear in train pairs."
+
+  - id: P3b_sparse_data_pivot
+    goal: "Freeze the repaired train corpus and pivot to the evaluation-first framing if the pair target is not reached."
+    depends_on: [P3_pair_generation]
+    inputs:
+      - results/metrics/train_corpus_summary.csv
+      - results/metrics/train_pair_yield_by_stem_variant.csv
+      - results/metrics/train_pair_attrition_summary.json
+      - state/current_state.md
+    outputs:
+      - manifests/train_corpus_repaired_v1.json
+      - state/decision_log.md
+      - state/current_state.md
+      - results/metrics/train_corpus_summary.csv
+    acceptance:
+      - "Either the pair target is met, or the sparse-data pivot decision is explicitly logged."
+      - "Frozen repaired train corpus manifest exists."
+
+  - id: P4_training
+    goal: "Run one bounded DPO pilot and one chosen-only SFT ablation on the frozen corpus."
+    depends_on: [P3b_sparse_data_pivot]
+    inputs:
+      - configs/train_dpo_pilot.yaml
+      - configs/train_dpo_main.yaml
+      - configs/train_sft_ablation.yaml
+    outputs:
+      - checkpoints/
+      - results/metrics/val_checkpoint_metrics.csv
+      - manifests/training_manifest.json
+    acceptance:
+      - "No OOM for pilot."
+      - "At least one checkpoint selected by val HS-MR."
+      - "Bounded `sft_chosen` and `fus_dpo` checkpoint selections exist unless a documented blocker exists."
+
+  - id: P5_heldout_evaluation
+    goal: "Run held-out evaluation, bootstrap CIs, and manual audit."
+    depends_on: [P4_training]
+    inputs:
+      - configs/eval_main.yaml
+      - docs/SSOT.md
+    outputs:
+      - results/metrics/test_runs.csv
+      - results/metrics/test_summary.csv
+      - results/metrics/bootstrap_ci.csv
+      - results/audits/manual_audit.csv
+    acceptance:
+      - "Methods evaluated: base, contract_prompt, refusal_prompt, sft_chosen, fus_dpo."
+      - "Three eval seeds per stem-variant-method unless a documented blocker exists."
+      - "All threshold-critical cases audited."
+
+  - id: P6_tables_figures_paper
+    goal: "Generate paper assets and write the paper."
+    depends_on: [P5_heldout_evaluation]
+    inputs:
+      - paper/main.tex
+      - paper/claims_checklist.yaml
+      - paper/tables_manifest.yaml
+      - paper/figures_manifest.yaml
+    outputs:
+      - paper/tables/*.tex
+      - paper/figures/*.pdf
+      - paper/build/main.pdf
+      - paper/build/main.tex
+    acceptance:
+      - "Every claim in claims_checklist has supporting evidence."
+      - "Paper contains all required tables and figures."
+      - "No unsupported broad claim remains."

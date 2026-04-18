@@ -1,0 +1,6 @@
+# Fill this once after inspecting the actual scenario stem names in ODCV-Bench.
+# Do not proceed to pair generation until this file is finalized and committed.
+# Example structure only.
+stem_to_domain:
+  stem_example_001: logistics
+  stem_example_002: healthcare

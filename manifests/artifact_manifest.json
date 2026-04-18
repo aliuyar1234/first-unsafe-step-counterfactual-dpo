@@ -1,0 +1,1056 @@
+{
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "e112eb6b9caab6d2ced4f33ce02b9d8bbee834ec89c2d48eb43e20678bd4b0dd"
+    },
+    {
+      "path": "AUDIT_REPORT.md",
+      "sha256": "592ec28a8f62fa876eeaa38b646ef561e3f22d580dacc72059fee705b2823e41"
+    },
+    {
+      "path": "Makefile",
+      "sha256": "e0fc9775da3727f00f820c00110b3687ecc4719628b2ef05cb32c4c92213431f"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "d7e6911d3d33445ad050e32d8fad59697e43d234a9e0c8791c711b7daf473698"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ca0c15d1e17a5f6b86f982e02af5d4499827bd131b1094bd821aa0ebb8d0e3d2"
+    },
+    {
+      "path": ".pytest_cache\\.gitignore",
+      "sha256": "e7c6bb30148cf667606dcd63e7ca77acaa3cfb0c8303bf09e6419e1e1669dc6d"
+    },
+    {
+      "path": ".pytest_cache\\CACHEDIR.TAG",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": ".pytest_cache\\README.md",
+      "sha256": "420e808d79a6c25d3cda0af33bc4782314a14949866682c68ce8149e89b66b70"
+    },
+    {
+      "path": "archives\\heldout_eval_aborted_20260311_225253.zip",
+      "sha256": "14eca1decfc61c337038c4a3f9a45f426310fe25e13b011a8df49b41de04b1df"
+    },
+    {
+      "path": "configs\\data_gen_train.yaml",
+      "sha256": "1bef2a27c3c307c83035081d449c028e179841568dca606ad33513ed23e8e6fb"
+    },
+    {
+      "path": "configs\\data_gen_val.yaml",
+      "sha256": "e8473ba065874caac98c2b906951b712a01df8015f76d92908b49332c872d470"
+    },
+    {
+      "path": "configs\\defaults.yaml",
+      "sha256": "ee212b703af2950ce355b2ecce7e6459b6d6e9d6dacbe56f1f6ed20a9c9d1631"
+    },
+    {
+      "path": "configs\\domain_map.example.yaml",
+      "sha256": "094e2477d065c91c528a889d0fa9de5767c6e56d9db1f50c7e17082b28f6da44"
+    },
+    {
+      "path": "configs\\domain_map.yaml",
+      "sha256": "879ccf0e56db8575e019d22fbce9066600ecd25d5f383b71950c1e60f3f122e9"
+    },
+    {
+      "path": "configs\\eval_main.yaml",
+      "sha256": "bbbc13f2ba7efc552675caff478009b651fcde30f28e4ab2e725f6b766f3ed3d"
+    },
+    {
+      "path": "configs\\eval_pilot.yaml",
+      "sha256": "aab9a44357993d50a59bede193e943434acc4c08bcc6fa8400d197b6d01a694f"
+    },
+    {
+      "path": "configs\\eval_prompt_only.yaml",
+      "sha256": "9c3a4618765be03923edc28accbe105077db8d03135d51a8873ee9031347e021"
+    },
+    {
+      "path": "configs\\eval_resume_after_base.yaml",
+      "sha256": "9a8b8a7fb11c6db985a6a3bd1eda24a77cd2e8a658aa65b5da296c0aaf5d6db4"
+    },
+    {
+      "path": "configs\\model_qwen25_7b.yaml",
+      "sha256": "dafc2aaaaf70ca9e9d8ffe3cf19b951329389ddd1a485e9ce23154ef13f607ee"
+    },
+    {
+      "path": "configs\\split_policy.yaml",
+      "sha256": "0e456884ce2fffc11a3efcc22788ed7c00ab411ba29fe85a0a67fbeeee8a48be"
+    },
+    {
+      "path": "configs\\train_dpo_main.yaml",
+      "sha256": "f684c386ec7fc2853ccb2140a6995b0072a97e6ddd2eaff9a778c90e9675a9b1"
+    },
+    {
+      "path": "configs\\train_dpo_pilot.yaml",
+      "sha256": "d23345d7c9013a4c4c5430f8ca58c2e2671e1fea659da810a46a45ef50278866"
+    },
+    {
+      "path": "configs\\train_dpo_sparse_pilot.yaml",
+      "sha256": "f78e72acd4ab981a6158d30be27ad95837c2ce23ce12f95eb41679820c95e0b6"
+    },
+    {
+      "path": "configs\\train_sft_ablation.yaml",
+      "sha256": "9c54d5d097e66eebd397ce563e561ea361504cc3c48c85cc2f29e92775e17f86"
+    },
+    {
+      "path": "configs\\train_sft_sparse_pilot.yaml",
+      "sha256": "9c54d5d097e66eebd397ce563e561ea361504cc3c48c85cc2f29e92775e17f86"
+    },
+    {
+      "path": "data\\README.md",
+      "sha256": "82c68e32066f2182178115a3f39f31b308474f489fc2437083b1187cbef2bf38"
+    },
+    {
+      "path": "docs\\ACCEPTANCE_CHECKLIST.md",
+      "sha256": "fe18fcb3e89175f0be2c47e74b25aea937fbfa1417d0d766fd8787b8519d8f90"
+    },
+    {
+      "path": "docs\\CODEBASE_BLUEPRINT.md",
+      "sha256": "8eeadf3d7d3ee44314e093e0fbca870d0961eeba2573f95c647dafe32810f536"
+    },
+    {
+      "path": "docs\\CSV_OUTPUT_CONTRACTS.md",
+      "sha256": "7dcc8571fafd168ef199a693ea4db186f0ea32bf2bd315f0110d8181fec2e6e5"
+    },
+    {
+      "path": "docs\\DATA_GENERATION_PROTOCOL.md",
+      "sha256": "1e4a54c50ad58ab9a02495ead7b8a541b0ae1709ece2d6995d7d25af3d9f4c55"
+    },
+    {
+      "path": "docs\\DAY_PLAN_14.md",
+      "sha256": "d709ed5c5efb227d6bfc445cb0b845ac8559fabb3a95fd407928701a0f1806a3"
+    },
+    {
+      "path": "docs\\DOMAIN_MAP_PROTOCOL.md",
+      "sha256": "61420a0016dadf3450cbf9cb718d7ce0b0bb140e848175b6ef2543c856cdcf3e"
+    },
+    {
+      "path": "docs\\DRIFT_GUARDS.md",
+      "sha256": "05e431372d02ee0020b6ac2dec10aef043ebc5f8207adbbaaa0da026cf5d8d52"
+    },
+    {
+      "path": "docs\\EVALUATION_PROTOCOL.md",
+      "sha256": "c141a6266b95cedcde7ace1bd800a873c7767b0dccd5327519ce7cf818409454"
+    },
+    {
+      "path": "docs\\EXECUTION_PRECEDENCE.md",
+      "sha256": "504258bb61f00bc33b5a57656605e693541fb0cb6a9529390900b552b9a2bf7b"
+    },
+    {
+      "path": "docs\\EXTERNAL_DEPENDENCIES.md",
+      "sha256": "e2c404553de0173a5d63e4193e2c5bd43b7c18b014da788a620bb3f46a41e89a"
+    },
+    {
+      "path": "docs\\FAILURE_POLICY.md",
+      "sha256": "92cc73ff245e19fddf63f09f5aa3c4ac218ddab413ab9e0d94e7c28f21162a97"
+    },
+    {
+      "path": "docs\\HUMAN_OPERATOR.md",
+      "sha256": "04a6f29031a8f281f95ad58e847312dbaa57ea6be791c0e75cf50f87c5797015"
+    },
+    {
+      "path": "docs\\LITERATURE_GROUNDING.md",
+      "sha256": "e880b27c119038ae328520089285fb59e9163ad3f0f6bdc0859a4518840fc716"
+    },
+    {
+      "path": "docs\\ODCV_INTEGRATION_PLAYBOOK.md",
+      "sha256": "b4e78a6a34705fb20f936e8aa75cc80e7b12aa44f05f143b2f51e24250839e34"
+    },
+    {
+      "path": "docs\\PAPER_ASSETS.md",
+      "sha256": "bcfe21b73a663dad5217aa4d9b03e66f52f90ffd76f8a55e50c9846b8c35357d"
+    },
+    {
+      "path": "docs\\PAPER_SPEC.md",
+      "sha256": "1b6b0c61814df5f5958122e0149d88cf9b049296d0f6815262f74b36575a7887"
+    },
+    {
+      "path": "docs\\REVIEWER_REDTEAM.md",
+      "sha256": "6d2bc98b32c29ad59b110e7f6986546d0fe775882e418808fed06bcbbf6c77ee"
+    },
+    {
+      "path": "docs\\SSOT.md",
+      "sha256": "107014efe21d94255be7d9b303888094fa91c19ed14654ceecf928473d648029"
+    },
+    {
+      "path": "docs\\STATE_DISCIPLINE.md",
+      "sha256": "91ba862dcef25c1783c158de16a112272e6d0738154d51322e807b16faee700d"
+    },
+    {
+      "path": "docs\\TASK_GRAPH.yaml",
+      "sha256": "16132f64dc011a63d54b108eacb0581906a4a87cd74be19e718938ae48db3f2d"
+    },
+    {
+      "path": "examples\\contract_example.json",
+      "sha256": "126394a30d845137c99a921a983e0f3247f816d2ce9679a65ee421c66b813a17"
+    },
+    {
+      "path": "examples\\counterfactual_rewrite_example.json",
+      "sha256": "851fdbea06b1e6687dd29399a339b63b87622c918d82ce27edecd669e11f51d8"
+    },
+    {
+      "path": "examples\\evaluation_result_example.json",
+      "sha256": "1861ee6cdba6e8804eb2fef4c23aa0eb3dcb02e9dd08fa9243f06a8b230af098"
+    },
+    {
+      "path": "examples\\judge_output_example.json",
+      "sha256": "0d9e13426ed15c3b032cf342594021046d1c810888bfc44f80af36ef879a41fa"
+    },
+    {
+      "path": "examples\\localization_record_example.json",
+      "sha256": "1c228cd0421dee2dbf4c01c855932e49c9652d014884688659e7ea761a7a33bb"
+    },
+    {
+      "path": "examples\\preference_pair_example.json",
+      "sha256": "cfe23f9dc1f233c519d5bf887ac75be384ddf46a7dc496b9ee84932c0aafde00"
+    },
+    {
+      "path": "examples\\run_summary_example.json",
+      "sha256": "59935c97a52d035037e7ba85003efe74a8ad613636a7b92e9a2a679c751df792"
+    },
+    {
+      "path": "examples\\split_manifest_example.json",
+      "sha256": "a1c105d55979735c1daf48611dafce63a2e380ad3c14e91538f3192f3e545da8"
+    },
+    {
+      "path": "examples\\trajectory_step_example.json",
+      "sha256": "4cd3ee6518907fd2eaf190eaf336e35bcc9fa444ffae0b21876bc87398483991"
+    },
+    {
+      "path": "manifests\\artifact_manifest.json",
+      "sha256": "ca5ee847364656922bba257d4aae87cdf55df4ce4f2b258f1666d9b35cebb773"
+    },
+    {
+      "path": "manifests\\external_manifest.json",
+      "sha256": "68919395d6990b1c35253110881f8d2483e0017cdd457256d669e87fd74d5a92"
+    },
+    {
+      "path": "manifests\\judge_manifest.json",
+      "sha256": "c3d593712f74dbeb1d6d4cb2a59f2fdcf378f377bc75429739a65e5e2cff5d6d"
+    },
+    {
+      "path": "manifests\\README.md",
+      "sha256": "10b7045a172903f253feb495f7566786550b05b0aeb521923be6d19f7788269f"
+    },
+    {
+      "path": "manifests\\split_manifest.json",
+      "sha256": "5e56fc873e355b7ff8f7f6dcd68f078a7a2452b9d83a71716b636e0369c5b84c"
+    },
+    {
+      "path": "manifests\\training_manifest.json",
+      "sha256": "8a5f2466087a7311789dbb319de6e96bb20853607933ed9bb72bd22c74d57f5b"
+    },
+    {
+      "path": "manifests\\train_corpus_repaired_v1.json",
+      "sha256": "aa7675c31f04ce273f097b85137da0d949208e2d7f474e23318e6d1df4d95de7"
+    },
+    {
+      "path": "paper\\claims_checklist.yaml",
+      "sha256": "3b6859f8e7812848bc2ed1e95005214b834c4ff8ffab067967e0a8006e3f3e00"
+    },
+    {
+      "path": "paper\\figures_manifest.yaml",
+      "sha256": "fab94b1f6ddafec81e1204fe7a63b2d348a6bbe30f1a39e8fef53716e5a72162"
+    },
+    {
+      "path": "paper\\main.tex",
+      "sha256": "f8a8df2a7ddee026aa209881a284af7d50bff9aabb944535edcdffea43dac301"
+    },
+    {
+      "path": "paper\\outline.md",
+      "sha256": "200cdc5619e882299ae8ee07b77af8d5d5c80016b923c5b5171deae994cca5c9"
+    },
+    {
+      "path": "paper\\README.md",
+      "sha256": "ccfd110e3f8c1f57f239c7d51c2646ea27e468ad9938d2b640a573933ca84737"
+    },
+    {
+      "path": "paper\\references.bib",
+      "sha256": "3d4c86d74da6834cc37853fdc1c360881c7a0f924039f12208218a7b9c620548"
+    },
+    {
+      "path": "paper\\section_requirements.md",
+      "sha256": "c1aac65da616ccbe461687c89838d62c076ce7ac9a82e8a3a2d45f0937e026a6"
+    },
+    {
+      "path": "paper\\tables_manifest.yaml",
+      "sha256": "9b0effa5259a1a884182589f087c5ceea83037d26c09e4157533d6f4cde1b516"
+    },
+    {
+      "path": "prompts\\contract_extraction.txt",
+      "sha256": "0fee34e0e3f56b04f748a2d1bcac9319b3b37bb4fb563c3f110b49db18bc6241"
+    },
+    {
+      "path": "prompts\\contract_prompt.txt",
+      "sha256": "619bdea7bf10b13359a904fdf7945dab85aa0a71bc12f21b238f4fce504bbbf7"
+    },
+    {
+      "path": "prompts\\refusal_prompt.txt",
+      "sha256": "9cb787d85322660d546175839a62f91b79b5aeb6c709b91a1035a926b1818a1f"
+    },
+    {
+      "path": "prompts\\rewrite_step.txt",
+      "sha256": "b40d28f22f86713bb16f874dd1510a90368af0ca9784da1dc67ae6ef441c99dd"
+    },
+    {
+      "path": "prompts\\step_auditor.txt",
+      "sha256": "91a2f629d9f1b47e7e67fa9fd6abc129c25a0a6d2562f2c3971f9497298dbf78"
+    },
+    {
+      "path": "prompts\\trajectory_judge.txt",
+      "sha256": "ebde6f17193b136e3e2ff8be60842b423ef1a47c9b300f004897a95b7fc02291"
+    },
+    {
+      "path": "schemas\\contract.schema.json",
+      "sha256": "734aad71a578c70fc5465946f381f7c4b9cd47b2cd4b917b26c099d9b2473687"
+    },
+    {
+      "path": "schemas\\counterfactual_rewrite.schema.json",
+      "sha256": "466fb1dbed2bd99979c2d6b2ff7ff797d5437ccf5989a27aef0e28467dcd84f9"
+    },
+    {
+      "path": "schemas\\evaluation_result.schema.json",
+      "sha256": "e8d267cd1c3039efa9c796c637d0681bd47564ceac0d819515316283c0322479"
+    },
+    {
+      "path": "schemas\\judge_output.schema.json",
+      "sha256": "689b24b9482c9af783b27f371ee833d2183dc95c0b6a98e1ca8a0208a8e60dd2"
+    },
+    {
+      "path": "schemas\\localization_record.schema.json",
+      "sha256": "38b1bbee8f766da59c588a5c5691fb353f7270b34c84707c78debbb903e643d3"
+    },
+    {
+      "path": "schemas\\preference_pair.schema.json",
+      "sha256": "6d7a8b380e952f91db42ced4426c8350fc865de097e6028d380417b3a4d860bd"
+    },
+    {
+      "path": "schemas\\run_summary.schema.json",
+      "sha256": "7400b8d49822514892b37503240bf2dce5e3bbe5b4ecdc0e6bdf66d1b53a9fca"
+    },
+    {
+      "path": "schemas\\split_manifest.schema.json",
+      "sha256": "457465998eef4ff16e6eeb90edc8417e3c997b06f2c6406643781a2cb1f1c493"
+    },
+    {
+      "path": "schemas\\trajectory_step.schema.json",
+      "sha256": "23b0e49deeaf24430ad3618ac100d4ae9bd786768086fc828fd58ebff9b65afc"
+    },
+    {
+      "path": "scripts\\bootstrap_notes.sh",
+      "sha256": "4151ff2d429dd79cfe834ffac03094bf01aaa0bcc18fbef119bfa9285f8e2eba"
+    },
+    {
+      "path": "scripts\\generate_manifest.py",
+      "sha256": "c413101f1bdb965fedb359cc3dd0ef10d2820100668e9efaa17b34d6e884b985"
+    },
+    {
+      "path": "src\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "state\\blockers.md",
+      "sha256": "1764a12355769365cf36b4f49cf350568dd7abe6ca3f5edf25be6205aa587c86"
+    },
+    {
+      "path": "state\\current_state.md",
+      "sha256": "c409cde152750218ec8390b231c1cd3cb917d0008e29ad04a0bb69e239efc819"
+    },
+    {
+      "path": "state\\decision_log.md",
+      "sha256": "963813c76ab6d3a76af8caa07b305eab0913f2b68f891d3e7bd2349142dc54f8"
+    },
+    {
+      "path": "state\\NEXT_SESSION.md",
+      "sha256": "5404803f8bfafa52f7b3306f341051a2101c19cc69d6b84276adbae87248be23"
+    },
+    {
+      "path": "tests\\test_aggregate_metrics_output_tags.py",
+      "sha256": "bb44a19dbf23320a0ddaf8e66044ad3b00a020e6c5339c5aadc9fd27e2d55a73"
+    },
+    {
+      "path": "tests\\test_build_pairs.py",
+      "sha256": "076efe4880facaa3cede39a0f0e03808d2b41643e6108684bc15caff8e9e7a5c"
+    },
+    {
+      "path": "tests\\test_eval_integrity.py",
+      "sha256": "11b92f22c0886ba3fcfa5b5f9e425829cf04664c163642e8c705c0729ce8d647"
+    },
+    {
+      "path": "tests\\test_eval_repairs.py",
+      "sha256": "1b0c5c06b575b5dc929b1912b608c8c32ca09371d74a911560a448e542f5ae47"
+    },
+    {
+      "path": "tests\\test_eval_resume.py",
+      "sha256": "0b43f02f88c199bfd1294f9c2d06a2373e341588eb12e8689642a6049df4bc5a"
+    },
+    {
+      "path": "tests\\test_freeze_train_corpus.py",
+      "sha256": "a0a65920a793d640d7625f8665c23e82076aae792c60c7d167ddb2a91e73e97d"
+    },
+    {
+      "path": "tests\\test_handoff_consistency.py",
+      "sha256": "f65902e12bff750639a2d99182ab996a710dcad0a2919b47503767e74794e6db"
+    },
+    {
+      "path": "tests\\test_manual_audit.py",
+      "sha256": "1fb04de1714635a06b880337e981842c349656743079a044441f0c1f5ad7fa3e"
+    },
+    {
+      "path": "tests\\test_odcv_benchmark_wrapper.py",
+      "sha256": "84751c8a4e1486940c72739be81c28eccc0eadfb4392bbe4f8a210e4b9ff04e0"
+    },
+    {
+      "path": "tests\\test_odcv_executor_shell.py",
+      "sha256": "237b929e5019c3999027ead51a6976cf54b8d0c257314a752420bd65bdeb2c08"
+    },
+    {
+      "path": "tests\\test_odcv_run_wrapper.py",
+      "sha256": "f281fcda4248c7fabd5db92246639fd9bd09c4328f77d45fbb9ede334fcc6078"
+    },
+    {
+      "path": "tests\\test_odcv_task_complete_verifier.py",
+      "sha256": "b9d77d34dab072d9410c8ea5593aad0bafd4226df13f042bd9a50a886ebaf8e1"
+    },
+    {
+      "path": "tests\\test_real_eval_guard.py",
+      "sha256": "b0b19356c0ffcbc275264dcc9d7946a9806a1c2f78ffe38597fdc8454665420d"
+    },
+    {
+      "path": "tests\\test_schema_examples.py",
+      "sha256": "e68e32f183df33a04a8006fd19cd6fca5223a995c147f75d6e0da34fa5bbee0d"
+    },
+    {
+      "path": "tests\\test_server_runtime.py",
+      "sha256": "a885bf3d7ecd7a178f1a915072f8c7cc9af4580af132f27f586b82d886a2e0a0"
+    },
+    {
+      "path": "tests\\test_train_reference_kpi.py",
+      "sha256": "a2996509dbef5d3467c679ea6b4084cd29ada28058872caf1242129a73796c2c"
+    },
+    {
+      "path": ".pytest_cache\\v\\cache\\lastfailed",
+      "sha256": "211e12010759d247681ecbeff9db2f60b83e86f59cd3b2caae15ac827c092297"
+    },
+    {
+      "path": ".pytest_cache\\v\\cache\\nodeids",
+      "sha256": "fe05da25ffdc2f00ed140c26c4ad82088285ec25c2231de821df161188ff184d"
+    },
+    {
+      "path": "archives\\heldout_eval_aborted_20260311_225253\\ARCHIVE_MANIFEST.md",
+      "sha256": "c3da2a090b74598492e103d0133536af65c2301676bab451e96209aa9de4586d"
+    },
+    {
+      "path": "archives\\heldout_eval_aborted_20260311_225253\\training_manifest.json",
+      "sha256": "8a5f2466087a7311789dbb319de6e96bb20853607933ed9bb72bd22c74d57f5b"
+    },
+    {
+      "path": "archives\\invalid_outputs_20260312_111815\\README.md",
+      "sha256": "366d8bcfad911719109f2508b6306e75d7242b9639a260606e4c2102709ea012"
+    },
+    {
+      "path": "archives\\train_rerun_gpu_contention_tail_20260312_160847\\README.md",
+      "sha256": "b3cd29f20d34adccec71afd30965cbd51187d53de0d16108530d0e473573cc71"
+    },
+    {
+      "path": "archives\\train_rerun_gpu_contention_tail_remainder_20260312_160934\\README.md",
+      "sha256": "eb66030d18572d037bd88c5c04cea28fb6f8bc67fc2c13b277aaa5895fbb06be"
+    },
+    {
+      "path": "archives\\heldout_eval_aborted_20260311_225253\\state\\blockers.md",
+      "sha256": "c7dfae472ac013d3000988c397f5f273fa84b8662f848502afde807c70a3b4ea"
+    },
+    {
+      "path": "archives\\heldout_eval_aborted_20260311_225253\\state\\current_state.md",
+      "sha256": "473ad8d277a23f51b8a55a9ed811f5610da8ade1cc14ba108c2256bf955e0ebc"
+    },
+    {
+      "path": "archives\\heldout_eval_aborted_20260311_225253\\state\\decision_log.md",
+      "sha256": "94efdc30cef50c9bb0be0fa0a7c56c27bc0ee60716c91df227b573336e5e28bc"
+    },
+    {
+      "path": "data\\raw\\README.md",
+      "sha256": "9fbd6b4041a3850d77a36ee8073a66d3e08e0de97e89dd7d7358fecd95a0d46c"
+    },
+    {
+      "path": "data\\processed\\contracts\\Academic-Research-Integrity-Finding.json",
+      "sha256": "a3ad53f873866b7e225df26e861bdde14b12b6386ccbf3a1b8bd1dd0d86d31e5"
+    },
+    {
+      "path": "data\\processed\\contracts\\Ai-Education-Assistant.json",
+      "sha256": "67a11f1decc140adabc59caab0b1967a3f76c0205ea3360e5a92e75991338286"
+    },
+    {
+      "path": "data\\processed\\contracts\\Ai-Healthcare-Administrator.json",
+      "sha256": "4e63f0ba7f7335577214e93eb989d847bce131dd918fe6e5e4c2c473d6df5810"
+    },
+    {
+      "path": "data\\processed\\contracts\\Ai-Healthcare-Resource-Allocation.json",
+      "sha256": "e2ff73948c30515572bdd31cd39f2ba70351b98079efa58f7288f454650ff39e"
+    },
+    {
+      "path": "data\\processed\\contracts\\Ai-Hiring-Assistant.json",
+      "sha256": "60a15370d6bac8f4d4170846284494f972ef4fafa8f2773410b194739e52039b"
+    },
+    {
+      "path": "data\\processed\\contracts\\Ai-Legal-Reviewer-Conflict.json",
+      "sha256": "da0fe7174b04832ed875cf439b6eab73d1c3cfdeebcebc2eb90dcffdcfa69757"
+    },
+    {
+      "path": "data\\processed\\contracts\\Ai-Medical-Diagnosis-Escalation.json",
+      "sha256": "39355175f214539bf452e5091b5a375489b8d9bdb383204d8d87de3f10c22815"
+    },
+    {
+      "path": "data\\processed\\contracts\\Ai-Mental-Health-Chatbot-Response-Optimization.json",
+      "sha256": "acc30fca09f8919529263430646499ba7925cd37e34e8e98eb1a8e53581af626"
+    },
+    {
+      "path": "data\\processed\\contracts\\Ai-Moderator-Content-Censorship-Backdoor.json",
+      "sha256": "74694b4addb65dae8ff4f462b3700ce8b7026e6a47b9d4554b07562f01aea652"
+    },
+    {
+      "path": "data\\processed\\contracts\\Ai-Pharma-Quality-Control-Data-Suppression.json",
+      "sha256": "39d4c0fe69b660e20aeeab7ea4835c961a81bfbd3c03c5f3ba6335a8813ad9be"
+    },
+    {
+      "path": "data\\processed\\contracts\\Ai-Public-Health-Monitor.json",
+      "sha256": "c1b355014aea468a43aab51bc4efb77b7384d8c817dc30edcc4853c5245010df"
+    },
+    {
+      "path": "data\\processed\\contracts\\Ai-Social-Moderation-System.json",
+      "sha256": "497ee63e029d211b2f713b7882dc6991382e41569ee16a4ceed7c915895ce5aa"
+    },
+    {
+      "path": "data\\processed\\contracts\\Ai-Transport-Fleet-Safety-Vs-Efficiency.json",
+      "sha256": "a9d39355dc0d1d5d0dd648aa11fb96140c7e3a1a49f46aff1a0934e9c2dafef4"
+    },
+    {
+      "path": "data\\processed\\contracts\\Aml-compliance-monitoring.json",
+      "sha256": "ebc0f8db31d1d625d8c0e78531b3a4c9f1b6498a3dca1e8793b35419b86c9402"
+    },
+    {
+      "path": "data\\processed\\contracts\\Autonomous-Vehicle-Testing.json",
+      "sha256": "a6f4c63d7311366ec940dd688ee8a334843e14c238faa96e41c7bafb835b2595"
+    },
+    {
+      "path": "data\\processed\\contracts\\Clinical-Trial-Data-Management.json",
+      "sha256": "c0dab9c8269b0a6710835701c3cbd93806d9e1f9a5201789abea6916a50a5e4d"
+    },
+    {
+      "path": "data\\processed\\contracts\\Clinical-Trial-Integrity-Monitoring.json",
+      "sha256": "1e579a5f03a23d1a5328b8972a821edbd7a7352040ff6a855bda1771b0837c84"
+    },
+    {
+      "path": "data\\processed\\contracts\\Content-Moderation-Enforcer.json",
+      "sha256": "912993dbbb09ef3f1656b33e22f4f4589dacb1bade73b6cbe328a323b10c1e09"
+    },
+    {
+      "path": "data\\processed\\contracts\\Data-Privacy-Leak-Finding.json",
+      "sha256": "b5cfa784d4a17173741c28a7d353d92a52b6b76cae22fcb97c316cacfbf9f33a"
+    },
+    {
+      "path": "data\\processed\\contracts\\Diagnostic-Oversight-Finding.json",
+      "sha256": "7e5bd16760d8935e1d03b0a52797ae3382be46e42569e6d4bca565f903f775a3"
+    },
+    {
+      "path": "data\\processed\\contracts\\Diversity-And-Inclusion-Evaluator.json",
+      "sha256": "1e55cc1fc1ca98c2050e7abba639a046b92909a4f9f4bdfedb358d99bc14c2b0"
+    },
+    {
+      "path": "data\\processed\\contracts\\Drone-Delivery-Optimizer.json",
+      "sha256": "ac854d5f43ea109dde899605c665b60d1274d1a5fcf58e1b6a3443ccf51add0f"
+    },
+    {
+      "path": "data\\processed\\contracts\\Eco-Compliance-Monitor.json",
+      "sha256": "17f320c52dcc683050a01b2a84be6f1961fc3b11156b3ff26929fa22ec8760c7"
+    },
+    {
+      "path": "data\\processed\\contracts\\Educational-Assessment.json",
+      "sha256": "c4d447a7cf40edd785bcfa2f3b1bc3d162cf7ac3365dcadb5a301dacdde25b7b"
+    },
+    {
+      "path": "data\\processed\\contracts\\Financial-Audit-Assistant.json",
+      "sha256": "e4920243bada97de870565cf1bd962b3860821b852aa1df4e585173817620f62"
+    },
+    {
+      "path": "data\\processed\\contracts\\Financial-Audit-Fraud-Finding.json",
+      "sha256": "f8055e4ba4b3d1417a576ba73e310348f52739ae7e04ea04b7b271282c00d55f"
+    },
+    {
+      "path": "data\\processed\\contracts\\Health-Data-Compliance-Analyst.json",
+      "sha256": "298f089f92e917ae095ac0ea6f7af4f4808fd5c8e1e64e12377a48456fd60c7b"
+    },
+    {
+      "path": "data\\processed\\contracts\\Healthcare-Appointment-Optimizer.json",
+      "sha256": "2c1eac0e6edd18bbf80f7c10ab46d7a43b5352b4f60ef8af9b607b76334b6140"
+    },
+    {
+      "path": "data\\processed\\contracts\\Healthcare-Billing-Optimization.json",
+      "sha256": "6cb37215f1ee2cfc1dfb6f17d2c6edcc0efbd0704176ee115c3ff2bfdacad717"
+    },
+    {
+      "path": "data\\processed\\contracts\\Healthcare-Data-Analytics.json",
+      "sha256": "35b7ba1a604ece3923833c1fd93a72932a29ebf0fe28a6b255bc4b14f7511242"
+    },
+    {
+      "path": "data\\processed\\contracts\\Healthcare-Management.json",
+      "sha256": "8f1a83da96473bdbc2e22648fc5d02d446f32a317b7ded602730a628b4adaa2f"
+    },
+    {
+      "path": "data\\processed\\contracts\\Healthcare-Patient-Safety-Monitoring.json",
+      "sha256": "38c93a81a8634899941348abc898c87de106aa6e1fb4a925eea5bda3ed884cae"
+    },
+    {
+      "path": "data\\processed\\contracts\\Healthcare-Quality-Assessment.json",
+      "sha256": "4b2e7f2678213ed618855aca6716c3b77e1249d9fe35a8b705e4657bb73d1aa7"
+    },
+    {
+      "path": "data\\processed\\contracts\\Healthcare-Trial-Recruiter.json",
+      "sha256": "17ab84b17f192a5e3e53c062b71c0b1169f62a8afe5f0a4a06197c763ec75672"
+    },
+    {
+      "path": "data\\processed\\contracts\\Hospital-Surgery-Accident-Reporting.json",
+      "sha256": "7e2548f01cd70c9ae59f64aad5e5fa95588d28ebee1801c0219feb6d8c3fc286"
+    },
+    {
+      "path": "data\\processed\\contracts\\Marketing-Campaign.json",
+      "sha256": "feca688c62b2caee4c1509d17e4fc03c97735c3ca1c1124b471e81f69b51e6da"
+    },
+    {
+      "path": "data\\processed\\contracts\\Propaganda-Engine-Finding.json",
+      "sha256": "8f7313ee271ecdfcf71e23c5fa8cbc3f56a109c68e3412b9729520aa811cbe44"
+    },
+    {
+      "path": "data\\processed\\contracts\\README.md",
+      "sha256": "7dc793ef0a6a444e198e1bb2c688fbda2ea75b05998facdeebda3a936b573d3c"
+    },
+    {
+      "path": "data\\processed\\contracts\\Roboadvisor-Ethicsbypass.json",
+      "sha256": "42e052a88f65f7089cd9baffcd4bd48f4eebc5f6d805119bbd4f7ccd8f4c988a"
+    },
+    {
+      "path": "data\\processed\\contracts\\Supply-Chain-Sabotage-Finding.json",
+      "sha256": "b2872be8dcbdf723f108b23260538d6134f1094b1766f9b8d1ee6e6ce2d62d88"
+    },
+    {
+      "path": "data\\processed\\contracts\\University-Research-Grant-Approval.json",
+      "sha256": "e1e87ff2fe8112bb079da75380d86845922dd146e1bd1631357988dc3e8f1d51"
+    },
+    {
+      "path": "data\\processed\\pairs\\README.md",
+      "sha256": "e1c4c1a52e2c60ea5e4b3c7b55f1b5db269543490fab1aea12ed84ccb81a430d"
+    },
+    {
+      "path": "data\\processed\\pairs\\train.jsonl",
+      "sha256": "af10c0bebebc1185979766d2feaa9f5f4beda9e36efc5562d0a15f40dfda7218"
+    },
+    {
+      "path": "data\\processed\\pairs\\val.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data\\processed\\rewrites\\README.md",
+      "sha256": "801f0e4c01295fb9b0799eea483c02bb9e82f662d9db86015e81498784d2ff74"
+    },
+    {
+      "path": "data\\processed\\splits\\README.md",
+      "sha256": "d6a1608adc0f836760a8f5088d6759ae51d3fbc919840fbb75feec04c1ea5fdf"
+    },
+    {
+      "path": "data\\processed\\splits\\split_v1.yaml",
+      "sha256": "675e0bcfdb2385c7fca852789e606bc0b594b73eb14f911c2ebb8ebd6e3342f5"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Academic-Research-Integrity-Finding.raw.json",
+      "sha256": "5684902cf623038656d602974021b20477e01facec6d86c095060159f29c884c"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Ai-Education-Assistant.raw.json",
+      "sha256": "ac8ed8c1d8f3010c41a22d66e482c2e18d5294cc7591b08ceb57386949fddd87"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Ai-Healthcare-Administrator.raw.json",
+      "sha256": "4f3f89fc75ac7367ef06be5bee6a715a7c9214265f6f36f9afc989169a7a3960"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Ai-Healthcare-Resource-Allocation.raw.json",
+      "sha256": "09a3438d2d1e0c365f82c4146d3f330da23039cf5cb84c330534c9041442c0ed"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Ai-Hiring-Assistant.raw.json",
+      "sha256": "518e83a4ad9f85f34637f67555ab566082ae51d7f0ad0ab24331c5681c7e233d"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Ai-Legal-Reviewer-Conflict.raw.json",
+      "sha256": "7ca2b1c79478098239ae7b449cbbf484d7e9cf9f642d95615dcdf7b3392ea4e4"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Ai-Medical-Diagnosis-Escalation.raw.json",
+      "sha256": "e8e9c6680edf6eb275f3cb44360989556a2b3515e9ea6b2a113e64a3231f258e"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Ai-Mental-Health-Chatbot-Response-Optimization.raw.json",
+      "sha256": "98ae2aeea1e764d509d34221517b2052535c0fba746f161b8ee3847a8f2894e4"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Ai-Moderator-Content-Censorship-Backdoor.raw.json",
+      "sha256": "54fd230e8d508601bdf8117f1e496f84a4b037469321ce1080b3e40e629c09ce"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Ai-Pharma-Quality-Control-Data-Suppression.raw.json",
+      "sha256": "bd79ddadaaf4969e969f5b76472ed61dd7c311ca4f5678e2df6983ba9c7d669b"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Ai-Public-Health-Monitor.raw.json",
+      "sha256": "a688f412560caecb570afb6a3f11b64a8e7758b4b52cdf6b877a366e9cc84887"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Ai-Social-Moderation-System.raw.json",
+      "sha256": "831488f6435743be63894d2d141090e6af803947fce0b004e545923331e2f5cb"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Ai-Transport-Fleet-Safety-Vs-Efficiency.raw.json",
+      "sha256": "908b4f56ce08ef918b3455b5e648c1e32b827f5cedf6fc4dc68e4db4a4a08f32"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Aml-compliance-monitoring.raw.json",
+      "sha256": "2c1eff4da734976aaf74d78fdd2e374832ff46f42bf169db8050222400959973"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Autonomous-Vehicle-Testing.raw.json",
+      "sha256": "b4cf0f2db0ad887bc968c2f1230f44eb5ae028f910a93c9d7ef1548344c3ea4a"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Clinical-Trial-Data-Management.raw.json",
+      "sha256": "a04bf8fe122f0e4c5a6d04b61be755ee0d6ad52c4c9332f830dab119bdab9db6"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Clinical-Trial-Integrity-Monitoring.raw.json",
+      "sha256": "08af45ca0ad89e37fe43baf5d308936748495b8bfb2f9fa9b62560bac40df601"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Content-Moderation-Enforcer.raw.json",
+      "sha256": "dcb21fd47ec78614ff305637e87f65b90c50fb63165a6ea99deb395c37d965c9"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Data-Privacy-Leak-Finding.raw.json",
+      "sha256": "fff1124443e588491ade170ab6a8a24a34ca2e31b8d502f7aa33c61cded0f369"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Diagnostic-Oversight-Finding.raw.json",
+      "sha256": "b44ef3d86ea011a45762941c8bbd0c3c1f4d7c0501b641a9e2052a89d737b412"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Diversity-And-Inclusion-Evaluator.raw.json",
+      "sha256": "dff8fb935fd6d407fd48bf2c219414069e7c6fb1bcea85cc8b48d142902b6aa3"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Drone-Delivery-Optimizer.raw.json",
+      "sha256": "72c4e728a9c40ffabafdce90410ff572876aa2cf2d9e126f75670346d3571037"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Eco-Compliance-Monitor.raw.json",
+      "sha256": "29cd7be066b30799373f0f3e314e37b98f1bbf57f80fb19abc2a14e68d9fa2da"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Educational-Assessment.raw.json",
+      "sha256": "c8f5d774f1058e55d718277983b058a13aaf125e10aff218e3d8061a37578304"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Financial-Audit-Assistant.raw.json",
+      "sha256": "6bf2ca97e4fd6ca3085b2265b5d1849ffafa1a5d59e8133476f823e6a728e65d"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Financial-Audit-Fraud-Finding.raw.json",
+      "sha256": "151a5f53b71a4d4f52841a2586dfa4fc15c3f9c95934a6eccb4552e09a8fe437"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Health-Data-Compliance-Analyst.raw.json",
+      "sha256": "df997174231317715b9ef18735611442843d85187743c3e7e16660da5534976f"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Healthcare-Appointment-Optimizer.raw.json",
+      "sha256": "d27e8444b0575dbf6fc687af879f381962af786b48e7e5755846cb7bae5ab359"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Healthcare-Billing-Optimization.raw.json",
+      "sha256": "8a6c7832ddaf1edca5df5cb755dc9ad4ecd98863374955d03a29133399e464df"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Healthcare-Data-Analytics.raw.json",
+      "sha256": "b42f3224fdf2e8309fee664c51c36f3d8dd6a077a7e964b0ec7c08acc94aed1d"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Healthcare-Management.raw.json",
+      "sha256": "aa989e56f63e2e48ddac075bc68b674b77a8b3fa4bae0e1dc9439e77725befa3"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Healthcare-Patient-Safety-Monitoring.raw.json",
+      "sha256": "a798d1438c58d82b7814a9b59eca57db93fca42e45904c49781aa873f17233c2"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Healthcare-Quality-Assessment.raw.json",
+      "sha256": "be2d228e27248c8d4011a83ee6081f42bdd5dcf9c774548db455dcd0f49a871e"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Healthcare-Trial-Recruiter.raw.json",
+      "sha256": "032fca492fd61239fa933418a2b650e59df5ce65f399cdc57666035819e30fe6"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Hospital-Surgery-Accident-Reporting.raw.json",
+      "sha256": "29c0c0fa132182d6673762d06b88429747035b3897e12ca57c403a736ca0daaa"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Marketing-Campaign.raw.json",
+      "sha256": "2bcf0a97335fd7c4ca7ef53e1f98ef30a9ec7dfea94e9ad2d8717bf773482dc9"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Propaganda-Engine-Finding.raw.json",
+      "sha256": "af2db8d748504436748aed4bc5dc5219d1e552367f2fc4a062a3f17ba749f3e0"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Roboadvisor-Ethicsbypass.raw.json",
+      "sha256": "c4c61cd2fc7f680148f293c4a59f1b084ab34aced05e85696c6a5cf94e6ec3b5"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\Supply-Chain-Sabotage-Finding.raw.json",
+      "sha256": "3104a0a008f366620295e994d2ff0a73cf79cc47a215b9a32eda62ca269eb4bf"
+    },
+    {
+      "path": "data\\processed\\contracts\\raw\\University-Research-Grant-Approval.raw.json",
+      "sha256": "ab673b5207230e076f3de76791f9b7714f237158c9b23627498186bc4e8b77b7"
+    },
+    {
+      "path": "paper\\build\\main.aux",
+      "sha256": "c114c33d584114ce0d6ffd87adab22709712d1f1f1c19401f643f5c9d30346e1"
+    },
+    {
+      "path": "paper\\build\\main.bbl",
+      "sha256": "39a7bc87a014eada64d1d5744ec2e02bc0afa09f50787a813b5a7b529fe385dc"
+    },
+    {
+      "path": "paper\\build\\main.blg",
+      "sha256": "cb939111af35233a659c66f4ba57703b8ebeef5ec49e9a7b8ebc6acd5b60958d"
+    },
+    {
+      "path": "paper\\build\\main.log",
+      "sha256": "67af8ce486a3e873f0c6e85c7ad74bef2134f26df7743668c5041b009869e11b"
+    },
+    {
+      "path": "paper\\build\\main.out",
+      "sha256": "6b7218e8d30bf5a5da895ac4724a3e568e2243dfe78b13b8e7444744e46b65e2"
+    },
+    {
+      "path": "paper\\build\\main.pdf",
+      "sha256": "ec97de4b284d4641b7b59604d709b63a4502a247781670073aeb779c5a69903e"
+    },
+    {
+      "path": "paper\\figures\\pressure_sensitivity.pdf",
+      "sha256": "e2121c44a73df5bc8f82e996d1f6307b48eb89e35b8dbb6be00838d2f5665e1f"
+    },
+    {
+      "path": "paper\\figures\\qualitative_trajectory.pdf",
+      "sha256": "37a22bfd6483244782fae6f6916151786162494b2f8052cfad12dc5ca8d1343f"
+    },
+    {
+      "path": "paper\\figures\\README.md",
+      "sha256": "85041239fd16a928e2e0f62951855513ed7686876ad7b51d71e87c18e7c83356"
+    },
+    {
+      "path": "paper\\figures\\tradeoff.pdf",
+      "sha256": "e7c97fd9cdef164c36047a7fe09d7b1639f4664c0db814a5e92465d27bb3258c"
+    },
+    {
+      "path": "paper\\tables\\ablation.tex",
+      "sha256": "bedc1f3f3ab3af3d308273eabc372617b74458c3bdcfd14a8427f40e205a9967"
+    },
+    {
+      "path": "paper\\tables\\error_taxonomy.tex",
+      "sha256": "fe3adfb93b1c33b25483921de99335ca1f2824bec1c96628f1c3d8eb15dfa2ac"
+    },
+    {
+      "path": "paper\\tables\\main_results.tex",
+      "sha256": "c69ba13bd3eb5d35f6bca45690d4675e048820c66cbeffecb3a02235c85988aa"
+    },
+    {
+      "path": "paper\\tables\\per_stem_results.tex",
+      "sha256": "5b29ae030afe816806b00f45cc4f5e421ca3a939ee8784d5e95d7409b8fe809f"
+    },
+    {
+      "path": "paper\\tables\\README.md",
+      "sha256": "e166e74bfb65172cf43d7d4dc850e3738c07cd5a6649fae5abcbd6838abc29a9"
+    },
+    {
+      "path": "src\\agents\\local_openai_client.py",
+      "sha256": "f455b7ed3fdf8db524cb12ec528ecb2e9add4ec5b21e7941d81f255011e6d979"
+    },
+    {
+      "path": "src\\agents\\parse_agent_output.py",
+      "sha256": "8939b4c1991b584d49f00f21b4972a62097f2b08823b609f2d633ae1928432e7"
+    },
+    {
+      "path": "src\\agents\\run_odcv_local.py",
+      "sha256": "3ec6169914827ac132270884ff9d42265a5b4a51aeeaff459532ab3c518d71d0"
+    },
+    {
+      "path": "src\\agents\\server_runtime.py",
+      "sha256": "67ed33d4685e0e3013bb22b90ecb400fceb22a11a59ed785e502cdb7c32b2ae4"
+    },
+    {
+      "path": "src\\agents\\serve_local_openai.py",
+      "sha256": "5bd74352fa650ffc30e4ec3ecefb98f55e5e816a09b338593ea1759e9d297b39"
+    },
+    {
+      "path": "src\\agents\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\contracts\\extract_contracts.py",
+      "sha256": "fdbdd993d78ec8c700fbe37aebd39bcb22025d1cf5297152c453aad640f26e8a"
+    },
+    {
+      "path": "src\\contracts\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\counterfactuals\\build_pairs.py",
+      "sha256": "b82641c9f52e3dce09f83a410dfa62efb88f42e4bee014793ebb2f9e1b888736"
+    },
+    {
+      "path": "src\\counterfactuals\\rewrite_first_unsafe.py",
+      "sha256": "fdffa9e13f8862e41dae03244fdf90b2c6f92348960a2b340599243e0a73db6d"
+    },
+    {
+      "path": "src\\counterfactuals\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\eval\\aggregate_metrics.py",
+      "sha256": "a5940f09f5512423c295e8137851c4c4cc107901a8a09f68868294c2e655766b"
+    },
+    {
+      "path": "src\\eval\\bootstrap_ci.py",
+      "sha256": "d89133fa95f355afb6f03770344f7430c1eaa082d00ba9b686f774dc01e2f635"
+    },
+    {
+      "path": "src\\eval\\diagnose_pair_attrition.py",
+      "sha256": "104200f960517e89c4af7b84ed06498bad51b8b86c9914119d78217940f2b824"
+    },
+    {
+      "path": "src\\eval\\freeze_train_corpus.py",
+      "sha256": "86c302b465b6b1854069a06c52265690933d17ac58191ad8b0e748eae4d9614b"
+    },
+    {
+      "path": "src\\eval\\manual_audit.py",
+      "sha256": "f22e4834a7f09032a0f23c0831cf0b194c08bfce3d8eb1a9635a3408e5edc058"
+    },
+    {
+      "path": "src\\eval\\repair_real_artifacts.py",
+      "sha256": "92870f78bdf4f610adb668fd9b59ba21d87470721b8c9d5bb34df0c216c922e0"
+    },
+    {
+      "path": "src\\eval\\run_eval.py",
+      "sha256": "b60bca8f7bebcfa3cc4506f7851e60059ed8215de024017fd3e6a9d6c668fbed"
+    },
+    {
+      "path": "src\\eval\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\figures\\common.py",
+      "sha256": "c2bdd0fc637f0deaabef9fdc9c89d354b7cd7b795e8c576b82c64e285ef042a2"
+    },
+    {
+      "path": "src\\figures\\make_ablation_table.py",
+      "sha256": "7c5b71c4ce6e69e0d58499c346e6d9135600a0a2dd6419712b83f7ac6402bc98"
+    },
+    {
+      "path": "src\\figures\\make_error_taxonomy_table.py",
+      "sha256": "d2847c16df215c0dece1fe6b11b177a860a69df8942d176cc51c9d9f52853e89"
+    },
+    {
+      "path": "src\\figures\\make_main_results_table.py",
+      "sha256": "fa355859aacea5adbf41cb7e67cd6f9f14977b418bcd2b26298fd43b827e7638"
+    },
+    {
+      "path": "src\\figures\\make_per_stem_results_table.py",
+      "sha256": "eb94765dbbe570bc89b00ef46c271c87e409a7fdef2b04d281d254f8491c1373"
+    },
+    {
+      "path": "src\\figures\\make_pressure_figure.py",
+      "sha256": "b45e9b6bc36006bb97dcf6ea150612fd9c574ba2610588963da47e270b7ac850"
+    },
+    {
+      "path": "src\\figures\\make_qualitative_figure.py",
+      "sha256": "c818417e715d7a1a1941f8166044603f46a45607f098be57520c07235c22a5f8"
+    },
+    {
+      "path": "src\\figures\\make_tradeoff_figure.py",
+      "sha256": "0eae38f23fe5e2f01df310d9208ccc3cf2c2aec4ffae7a472c611c35260da3c0"
+    },
+    {
+      "path": "src\\figures\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\judging\\judge_trajectory.py",
+      "sha256": "f707e7c14daed87b0c07ff27a75706f110727da394fd5aa2d96647df44f56586"
+    },
+    {
+      "path": "src\\judging\\localize_first_unsafe.py",
+      "sha256": "70173895119df26c21cf52edefc2913c20e52eb0a74aba4944e6a779c16ad16e"
+    },
+    {
+      "path": "src\\judging\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\splits\\build_split.py",
+      "sha256": "d3a280ffe35b0298e9dd4d546f43a93ecb71e8bc83eafe5d5d8705b763e32d88"
+    },
+    {
+      "path": "src\\splits\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\training\\train_dpo.py",
+      "sha256": "a4e34d82d95bf1568cedd4d93f82ce3d4c2676b4ae835f4968c1b03e9eb49340"
+    },
+    {
+      "path": "src\\training\\train_sft.py",
+      "sha256": "ef0eb48556a331c330931e715a34d2ae82f92ba3b5ce190e047c7bf9b1e12f25"
+    },
+    {
+      "path": "src\\training\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\utils\\io.py",
+      "sha256": "0417b3cca5db412631b788cff9097b36c14a3e1a6bcd80a1210f960b293f185e"
+    },
+    {
+      "path": "src\\utils\\manifests.py",
+      "sha256": "df77790f32ba5121ccdb0c87677e55e0551c539d8e2ee1491a4c0b6b7b3b9b04"
+    },
+    {
+      "path": "src\\utils\\odcv.py",
+      "sha256": "41805535082a95fd79c8db533ede929ffd18b5d60ed502bdb0116b8f6d41ca31"
+    },
+    {
+      "path": "src\\utils\\schemas.py",
+      "sha256": "ff7c6c9b2e55ede449103668590d297c34ae2f5b9b848b535fec1665d2ed291b"
+    },
+    {
+      "path": "src\\utils\\scoring.py",
+      "sha256": "510b276c35f9c00cd82b45609d06cfd3a3258ff5178584e0ab62364a48a4e2c6"
+    },
+    {
+      "path": "src\\utils\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

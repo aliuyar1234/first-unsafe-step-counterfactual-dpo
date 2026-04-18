@@ -1,0 +1,21 @@
+{
+  "method": "fus_dpo",
+  "split": "test",
+  "n_runs": 48,
+  "hs_mr": 0.3125,
+  "avg_severity": 1.94,
+  "kpi_sr": 0.5417,
+  "safe_kpi_sr": 0.4167,
+  "refusal_rate": 0.1458,
+  "hs_mr_mandated": 0.375,
+  "hs_mr_incentivized": 0.25,
+  "psg": -0.125,
+  "bootstrap_ci_hs_mr": [
+    0.2292,
+    0.3958
+  ],
+  "comparison_to_best_prompt_baseline": {
+    "delta_hs_mr": -0.0833,
+    "delta_safe_kpi_sr": 0.0625
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "external_repo": {
+    "commit": "1a3ca208c4a731a5ecbbd8458ad52c75e6a915a4",
+    "path": "./external\\ODCV-Bench",
+    "remote_url": "https://github.com/McGill-DMaS/ODCV-Bench.git"
+  },
+  "freeze_reason": "Sparse-data pivot after exhausting bounded judge repairs on the real 384-run train sweep.",
+  "frozen_train_corpus": {
+    "accepted_train_pairs": 72,
+    "contributing_stem_names": [
+      "Ai-Healthcare-Administrator",
+      "Ai-Healthcare-Resource-Allocation",
+      "Ai-Legal-Reviewer-Conflict",
+      "Ai-Moderator-Content-Censorship-Backdoor",
+      "Ai-Public-Health-Monitor",
+      "Ai-Social-Moderation-System",
+      "Data-Privacy-Leak-Finding",
+      "Diagnostic-Oversight-Finding",
+      "Health-Data-Compliance-Analyst"
+    ],
+    "contributing_stem_variant_groups": 12,
+    "contributing_train_stems": 9,
+    "method": "base",
+    "run_split": "train",
+    "runs_localized": 36,
+    "runs_severity_ge_3": 36,
+    "runs_with_kept_rewrites": 36,
+    "severity_distribution": {
+      "0": 348,
+      "3": 17,
+      "4": 13,
+      "5": 6
+    },
+    "suspicious_low_severity_runs": 0,
+    "total_runs": 384
+  },
+  "generated_at_utc": "2026-03-12T19:26:20Z",
+  "judge_backend_version": "deterministic_executed_action_judge_v5",
+  "judge_prompt_version": "trajectory_judge_v1",
+  "manifest_version": "train_corpus_repaired_v1",
+  "method": "base",
+  "metrics": {
+    "attrition_by_group_csv": {
+      "path": "results/metrics/train_pair_attrition_by_group.csv",
+      "sha256": "11e4bc7afabcb9168e22380c381f5a1a1e03a89e2b6d081aa4bd044ef0dea9ca"
+    },
+    "attrition_summary_json": {
+      "path": "results/metrics/train_pair_attrition_summary.json",
+      "sha256": "173aab3949d5f849d7ec61a2740fd52c13e4a9e7ee8be461950567dd1d65a864"
+    },
+    "judge_repair_delta_csv": {
+      "path": "results/metrics/judge_repair_delta.csv",
+      "sha256": "1ae31eafb8df9f1a2d0aebce0cd4b8ed0897b616a897d04849646cd6b56b7999"
+    },
+    "pair_stats_csv": {
+      "path": "results/metrics/pair_stats.csv",
+      "sha256": "e91864e01c62abe3b3a75eb83e4b60fe27d385f33bd152896c136bec2e1b20a9"
+    },
+    "train_corpus_summary_csv": {
+      "path": "results/metrics/train_corpus_summary.csv",
+      "sha256": "1dda4a3dd5a922584afe49a8f88802c375f03fe2edaaa5f440b6da8170b12b66"
+    },
+    "train_pair_yield_by_stem_variant_csv": {
+      "path": "results/metrics/train_pair_yield_by_stem_variant.csv",
+      "sha256": "ec01d0467c03a4962b145d134fb2082d24660c5a31ba913ef01942b7b577cd4c"
+    }
+  },
+  "pair_gate_status": {
+    "current_pairs": 72,
+    "current_stems": 9,
+    "met": false,
+    "target_pairs": 300,
+    "target_stems": 18
+  },
+  "paper_path_recommendation": {
+    "decision": "pivot_to_evaluation_first_sparse_data_limit_study",
+    "rationale": "The repaired train corpus is frozen after exhausting the bounded judge-repair route; the pair gate remains far below target, so further rescue should move to evaluation-first framing."
+  },
+  "pre_repair_snapshot": {
+    "accepted_train_pairs": 4,
+    "contributing_train_stems": 2,
+    "runs_localized": 2,
+    "runs_severity_ge_3": 2,
+    "runs_with_kept_rewrites": 2,
+    "severity_0_runs": 382,
+    "severity_3_runs": 0,
+    "severity_4_runs": 2,
+    "severity_5_runs": 0,
+    "snapshot_label": "pre_final_judge_repairs",
+    "source_note": "Authoritative pre-repair snapshot logged on 2026-03-12 after the real 384-run train sweep completed but before the final bounded executed-action judge repairs were frozen.",
+    "total_runs": 384
+  },
+  "project": "odcv_fus_dpo_v1",
+  "run_split": "train",
+  "split_manifest": {
+    "path": "data/processed/splits/split_v1.yaml",
+    "sha256": "675e0bcfdb2385c7fca852789e606bc0b594b73eb14f911c2ebb8ebd6e3342f5"
+  },
+  "train_pairs": {
+    "count": 72,
+    "path": "data/processed/pairs/train.jsonl",
+    "sha256": "af10c0bebebc1185979766d2feaa9f5f4beda9e36efc5562d0a15f40dfda7218"
+  }
+}

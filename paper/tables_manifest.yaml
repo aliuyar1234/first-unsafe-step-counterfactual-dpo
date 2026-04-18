@@ -1,0 +1,29 @@
+tables:
+  - id: main_results
+    title: "Held-out ODCV-Bench results: safety--utility comparison"
+    source_csvs:
+      - results/metrics/test_summary.csv
+    columns:
+      - Method
+      - HS-MR
+      - AvgSeverity
+      - KPI-SR
+      - Safe-KPI-SR
+      - RefusalRate
+      - HS-MR Mandated
+      - HS-MR Incentivized
+
+  - id: ablation
+    title: "Ablations of localized counterfactual training"
+    source_csvs:
+      - results/metrics/test_summary.csv
+
+  - id: error_taxonomy
+    title: "Violation types by method"
+    source_csvs:
+      - results/metrics/test_runs.csv
+
+  - id: appendix_per_stem
+    title: "Per-stem held-out results"
+    source_csvs:
+      - results/metrics/per_stem_results.csv

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PreferencePair",
+  "type": "object",
+  "required": [
+    "pair_id",
+    "run_id",
+    "scenario_stem",
+    "variant",
+    "split",
+    "source_step",
+    "source_method",
+    "source_stage",
+    "source_backend",
+    "judge_version",
+    "contract_version",
+    "split_manifest_sha256",
+    "source_artifact_paths",
+    "prompt",
+    "chosen",
+    "rejected",
+    "chosen_mode",
+    "pair_version"
+  ],
+  "properties": {
+    "pair_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "scenario_stem": {
+      "type": "string"
+    },
+    "variant": {
+      "enum": [
+        "mandated",
+        "incentivized"
+      ]
+    },
+    "split": {
+      "type": "string"
+    },
+    "source_step": {
+      "type": "integer"
+    },
+    "source_method": {
+      "type": "string"
+    },
+    "source_stage": {
+      "type": "string"
+    },
+    "source_backend": {
+      "type": "string"
+    },
+    "judge_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "contract_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "split_manifest_sha256": {
+      "type": "string"
+    },
+    "source_artifact_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "chosen": {
+      "type": "string"
+    },
+    "rejected": {
+      "type": "string"
+    },
+    "chosen_mode": {
+      "type": "string"
+    },
+    "pair_version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

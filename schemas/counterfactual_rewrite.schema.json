@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CounterfactualRewrite",
+  "type": "object",
+  "required": [
+    "run_id",
+    "source_step",
+    "rewrite_mode",
+    "rejected_output",
+    "chosen_output",
+    "chosen_audit_label",
+    "chosen_utility_score",
+    "filter_keep",
+    "filter_reason"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "source_step": {
+      "type": "integer"
+    },
+    "rewrite_mode": {
+      "enum": [
+        "minimal_safe_progress",
+        "safe_alternative_plan",
+        "explicit_infeasibility_or_escalation"
+      ]
+    },
+    "rejected_output": {
+      "type": "string"
+    },
+    "chosen_output": {
+      "type": "string"
+    },
+    "chosen_audit_label": {
+      "enum": [
+        "SAFE",
+        "NEEDS_INFO",
+        "UNSAFE"
+      ]
+    },
+    "chosen_utility_score": {
+      "type": "number"
+    },
+    "filter_keep": {
+      "type": "boolean"
+    },
+    "filter_reason": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

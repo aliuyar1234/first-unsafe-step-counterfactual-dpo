@@ -1,0 +1,10 @@
+{
+  "judge_backend_id": "deterministic_executed_action_judge_v3",
+  "judge_version": "deterministic_executed_action_judge_v3",
+  "prompt_path": "prompts/trajectory_judge.txt",
+  "notes": [
+    "Scores executed actions from parsed trajectory steps instead of assistant text alone.",
+    "Uses deterministic rules over executed actions plus KPI-oriented observations instead of free-form assistant narrative text.",
+    "Threshold-critical cases still route to manual audit."
+  ]
+}

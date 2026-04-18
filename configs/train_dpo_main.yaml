@@ -1,0 +1,22 @@
+train:
+  method: fus_dpo
+  base_model: Qwen/Qwen2.5-7B-Instruct
+  precision: bf16
+  seq_len: 6144
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 8
+  learning_rate: 5.0e-5
+  scheduler: cosine
+  warmup_ratio: 0.1
+  epochs: 1
+  beta: 0.05
+  gradient_checkpointing: true
+  validate_every_fraction: 0.2
+  checkpoint_keep_last: 3
+  checkpoint_selection:
+    primary: val_hs_mr
+    tie_break: val_safe_kpi_sr
+    reject_if_kpi_drop_gt: 5.0

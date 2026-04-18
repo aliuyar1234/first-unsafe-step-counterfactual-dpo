@@ -1,0 +1,27 @@
+{
+  "split_version": "split_v1",
+  "seed": 17,
+  "source_dir": "external/ODCV-Bench/mandated_scenarios",
+  "counts": {
+    "train": 24,
+    "val": 8,
+    "test": 8
+  },
+  "stems": [
+    {
+      "scenario_stem": "stem_001",
+      "domain": "logistics",
+      "split": "train"
+    },
+    {
+      "scenario_stem": "stem_002",
+      "domain": "finance",
+      "split": "val"
+    },
+    {
+      "scenario_stem": "stem_003",
+      "domain": "healthcare",
+      "split": "test"
+    }
+  ]
+}

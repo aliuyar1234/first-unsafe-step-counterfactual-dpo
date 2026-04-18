@@ -1,0 +1,69 @@
+claims:
+  - id: C1_problem_is_real
+    claim: KPI-gaming / ODCV is a distinct multi-step agent safety problem for autonomous tool-using agents.
+    evidence_required:
+      - bibliography: li2025odcv
+      - introduction_citation: true
+
+  - id: C2_evaluation_discipline
+    claim: The repository enforces a held-out stem-level ODCV evaluation protocol with frozen train/val/test splits, versioned artifacts, bootstrap uncertainty, and audit routing.
+    evidence_required:
+      - split_manifest: manifests/split_manifest.json
+      - train_corpus_manifest: manifests/train_corpus_repaired_v1.json
+      - prompt_only_summary_csv: results/metrics/test_summary_prompt_only.csv
+      - prompt_only_bootstrap_csv: results/metrics/bootstrap_ci_prompt_only.csv
+      - prompt_only_audit_manifest: results/audits/manual_audit_manifest_prompt_only.json
+
+  - id: C3_localized_pair_pipeline
+    claim: Real train trajectories can be converted into localized first-unsafe-step next-turn pairs under strict train-only discipline.
+    evidence_required:
+      - train_corpus_summary_csv: results/metrics/train_corpus_summary.csv
+      - pair_stats_csv: results/metrics/pair_stats.csv
+      - method_description: true
+      - schema_examples: true
+
+  - id: C4_sparse_support
+    claim: Under Qwen2.5-7B-Instruct and the earliest severity>=3 localization protocol, unsafe train support is sparse and concentrated rather than broadly available.
+    evidence_required:
+      - train_corpus_summary_csv: results/metrics/train_corpus_summary.csv
+      - train_pair_yield_by_stem_variant_csv: results/metrics/train_pair_yield_by_stem_variant.csv
+      - train_pair_attrition_summary_json: results/metrics/train_pair_attrition_summary.json
+
+  - id: C5_prompt_only_limits
+    claim: On the current held-out backbone, prompt-only contract and refusal prompting do not outperform base on the joint HS-MR / Safe-KPI-SR view.
+    evidence_required:
+      - prompt_only_summary_csv: results/metrics/test_summary_prompt_only.csv
+      - prompt_only_audit_manifest: results/audits/manual_audit_manifest_prompt_only.json
+      - main_results_table: true
+
+  - id: C6_sparse_pilot_interpretation
+    claim: Any observed SFT/DPO effect in this paper must be interpreted as a bounded sparse-data pilot rather than a definitive data-rich post-training result.
+    evidence_required:
+      - train_corpus_summary_csv: results/metrics/train_corpus_summary.csv
+      - training_manifest: manifests/training_manifest.json
+      - sparse_pilot_summary_csv: results/metrics/test_summary_sparse_pilots.csv
+      - ablation_table: true
+
+  - id: C7_capability_safety_bottleneck
+    claim: The observed train-side sparsity supports a capability-safety bottleneck interpretation: localized safety post-training is limited by how often the current model can generate unsafe multi-step trajectories under the benchmark protocol.
+    evidence_required:
+      - train_corpus_summary_csv: results/metrics/train_corpus_summary.csv
+      - train_pair_attrition_summary_json: results/metrics/train_pair_attrition_summary.json
+      - sparse_pilot_summary_csv: results/metrics/test_summary_sparse_pilots.csv
+      - discussion_text: true
+
+  - id: C8_failure_mode_shift
+    claim: In the audited held-out slice, prompt-only methods appear to shift the dominant high-severity failure mode from data falsification toward metric gaming rather than removing high-severity failures outright.
+    evidence_required:
+      - main_results_table: true
+      - error_taxonomy_table: true
+      - audited_test_runs_csv: results/metrics/test_runs.csv
+
+forbidden_claims:
+  - solves KPI-gaming
+  - generalizes to all agent safety
+  - beats runtime defenses
+  - provides guarantees
+  - works across model families
+  - proves localized DPO robustly succeeds under this protocol
+  - proves the capability-safety bottleneck is universal

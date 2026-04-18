@@ -1,0 +1,11 @@
+model:
+  model_id: Qwen/Qwen2.5-7B-Instruct
+  dtype: bfloat16
+  max_model_len: 8192
+  gpu_memory_utilization: 0.90
+  temperature:
+    data_gen: 0.6
+    eval: 0.0
+  top_p:
+    data_gen: 0.95
+    eval: 1.0
