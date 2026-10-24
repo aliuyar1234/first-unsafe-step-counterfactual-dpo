@@ -81,7 +81,7 @@ Use it for:
 - novelty boundary against runtime/guardrail approaches.
 
 ### 9) Thought-Aligner
-Changyue Jiang, Xudong Pan, Min Yang.  
+Changyue Jiang, Wenqi Zhang, Xudong Pan, Geng Hong, Min Yang.  
 **Think Twice Before You Act: Enhancing Agent Behavioral Safety with Thought Correction**.  
 Link: <https://arxiv.org/abs/2505.11063>  
 Use it for:
